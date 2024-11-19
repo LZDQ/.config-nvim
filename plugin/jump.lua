@@ -30,16 +30,15 @@ require('telescope').setup {
 		}
 	}
 }
-local builtin = require('telescope.builtin')
-vim.keymap.set('n', ';f', function() vim.cmd("Files") end, {})
-vim.keymap.set('n', ';F', builtin.find_files, {})
-vim.keymap.set('n', ';g', builtin.live_grep, {})
+vim.keymap.set('n', ';f', ":Files<CR>", { silent = true, noremap = true})
+vim.keymap.set('n', ';F', require('telescope.builtin').find_files, {})
+vim.keymap.set('n', ';g', require('telescope.builtin').live_grep, {})
 vim.keymap.set('n', ';G', function() vim.cmd("Rg") end, {})
 vim.keymap.set('n', ';b', function() vim.cmd("Buffers") end, {})
-vim.keymap.set('n', ';B', builtin.buffers, {})
+vim.keymap.set('n', ';B', require('telescope.builtin').buffers, {})
 vim.keymap.set('n', ';l', function() vim.cmd("Lines") end, {})
-vim.keymap.set('n', ';t', builtin.builtin, {})
-vim.keymap.set('n', ';k', builtin.keymaps, {})
+vim.keymap.set('n', ';t', require('telescope.builtin').builtin, {})
+vim.keymap.set('n', ';k', require('telescope.builtin').keymaps, {})
 
 -- " fzf in CURRENT buffer
 -- nnoremap <silent>;l :Lines<CR>

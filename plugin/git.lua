@@ -62,19 +62,11 @@ gitsigns.setup {
 			-- gitsigns.toggle_linehl()
 			gitsigns.toggle_current_line_blame()
 		end, { buffer = bufnr, noremap = true })
-		vim.keymap.set('n', ']c', function()
-			if vim.wo.diff then
-				vim.cmd.normal({ ']c', bang = true })
-			else
-				gitsigns.nav_hunk('next')
-			end
+		vim.keymap.set('n', ']m', function()
+			gitsigns.nav_hunk('next')
 		end, { buffer = bufnr, noremap = true })
-		vim.keymap.set('n', '[c', function()
-			if vim.wo.diff then
-				vim.cmd.normal({ '[c', bang = true })
-			else
-				gitsigns.nav_hunk('prev')
-			end
+		vim.keymap.set('n', '[m', function()
+			gitsigns.nav_hunk('prev')
 		end, { buffer = bufnr, noremap = true })
 	end
 }

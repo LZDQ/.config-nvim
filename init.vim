@@ -233,7 +233,7 @@ Plug 'folke/zen-mode.nvim'
 Plug 'folke/twilight.nvim'
 Plug 'shortcuts/no-neck-pain.nvim'
 Plug 'LZDQ/nvim-autocenter'
-" Plug '/home/ldq/nvim-autocenter'
+Plug 'nvim-focus/focus.nvim'
 
 " Misc
 Plug 'vim-scripts/restore_view.vim'
@@ -243,7 +243,6 @@ Plug 'kana/vim-smartword'
 Plug '3rd/image.nvim'
 "Plug 'andymass/vim-matchup'
 Plug 'numToStr/Comment.nvim'
-Plug 'nvim-focus/focus.nvim'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'gaborvecsei/cryptoprice.nvim'
 Plug 'rmagatti/auto-session'
@@ -258,6 +257,7 @@ Plug 'NStefan002/screenkey.nvim'
 Plug 'nvzone/showkeys'
 Plug 'nacro90/numb.nvim'
 Plug 'andweeb/presence.nvim'
+Plug 'dstein64/vim-startuptime'
 
 " Jump
 Plug 'ctrlpvim/ctrlp.vim'
@@ -267,7 +267,7 @@ Plug 'ggandor/leap.nvim'
 Plug 'rhysd/clever-f.vim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'ThePrimeagen/harpoon', { 'branch': 'harpoon2'}
-Plug 'inside/vim-search-pulse'
+" Plug 'inside/vim-search-pulse'
 
 " interactive python
 Plug 'benlubas/molten-nvim', { 'do': ':UpdateRemotePlugins' }
