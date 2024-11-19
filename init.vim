@@ -1,16 +1,17 @@
+inoremap jk <ESC>
+
 set rnu
 set nu
 
 set nowrap
 set noeb
-
 set nobackup
 set noswapfile
 set noundofile
+set noexpandtab
 
-inoremap jk <ESC>
+set ic
 
-"inoremap <TAB> <C-P>
 inoremap <S-TAB> <TAB>
 
 inoremap <C-V> <ESC>"+pa
@@ -40,11 +41,12 @@ nnoremap <LEFT> zH
 nnoremap <RIGHT> zL
 nnoremap <silent> <TAB> :bn<CR>
 nnoremap <silent> <S-TAB> :bp<CR>
-nnoremap <silent>Q :q<CR>
+nnoremap <silent> Q :q<CR>
 nnoremap <leader>q q
 nmap q <C-L>
 vnoremap q <ESC>
-inoremap <C-H> <C-W>
+inoremap <C-H> <C-W> " Ctrl-Backspace to delete a word
+nnoremap <silent> <C-W><C-D> :bd<CR>
 
 set tabstop=4
 set shiftwidth=4
@@ -56,13 +58,13 @@ filetype plugin indent on
 set autoindent
 set smartindent
 
-set noexpandtab
-set ic
 set viewoptions=cursor,folds,slash,unix
-nnoremap w <Plug>(smartword-w)
-nnoremap b <Plug>(smartword-b)
-
 set guicursor=n-v-c-i:block
+set cursorline
+set cursorlineopt=number
+set termguicolors
+
+au FileType * set formatoptions-=o
 
 " Compile
 " Note: <S-Fx> is x+12, <C-Fx> is x+24, <S-C-Fx> is x+36, <A-Fx> is x+48
@@ -164,178 +166,6 @@ autocmd FileType cpp inoremap <C-U> <esc>:call WriteEdge("")<left><left>
 autocmd FileType cpp inoremap <C-C> <esc>:call WriteScanf("")<left><left>
 autocmd FileType cpp nnoremap <F8> :r ~/OI/tem/
 
-call plug#begin('~/.local/share/nvim/site/plugged')
-
-" Skin
-Plug 'nvim-lualine/lualine.nvim'
-Plug 'folke/tokyonight.nvim'
-Plug 'LZDQ/umbra.nvim' " forked from 'navarasu/onedark.nvim'
-Plug 'sainnhe/sonokai'
-Plug 'sainnhe/everforest'
-Plug 'sainnhe/edge'
-Plug 'morhetz/gruvbox'
-Plug 'catppuccin/nvim'
-Plug 'EdenEast/nightfox.nvim'
-Plug 'rebelot/kanagawa.nvim'
-Plug 'nyoom-engineering/oxocarbon.nvim'
-Plug 'savq/melange-nvim'
-Plug 'marko-cerovac/material.nvim'
-Plug 'Mofiqul/dracula.nvim'
-Plug 'AlexvZyl/nordic.nvim'
-Plug 'rmehri01/onenord.nvim'
-Plug 'zaldih/themery.nvim' " Skin switcher
-
-" Buffer
-Plug 'akinsho/bufferline.nvim'
-Plug 'elihunter173/dirbuf.nvim'
-Plug 'folke/noice.nvim'
-Plug 'rcarriga/nvim-notify'
-Plug 'lukas-reineke/indent-blankline.nvim'
-Plug 'stevearc/dressing.nvim'
-Plug 'X3eRo0/dired.nvim'
-Plug 'stevearc/aerial.nvim'
-Plug 'simeji/winresizer'
-
-" lsp, highlight, completion
-Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
-Plug 'nvim-treesitter/nvim-treesitter-textobjects'
-Plug 'nvim-treesitter/nvim-treesitter-context'
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/cmp-cmdline'
-Plug 'hrsh7th/vim-vsnip'
-Plug 'hrsh7th/nvim-cmp'
-Plug 'lukas-reineke/cmp-under-comparator'
-"Plug 'folke/lua-dev.nvim'
-" Plug 'folke/neodev.nvim'
-Plug 'milisims/nvim-luaref'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'MunifTanjim/nui.nvim'
-Plug 'zbirenbaum/copilot.lua'
-
-" Language specific
-Plug 'cuducos/yaml.nvim'
-" Plug 'nvim-java/nvim-java'
-Plug 'mfussenegger/nvim-jdtls'
-Plug 'folke/lazydev.nvim'
-Plug 'hat0uma/csvview.nvim'
-Plug 'jeetsukumaran/vim-pythonsense'
-
-" Run, Debug
-Plug 'stevearc/overseer.nvim'
-" Plug 'sakhnik/nvim-gdb'
-" Plug 'mfussenegger/nvim-dap'
-
-" Typefocus
-Plug 'folke/zen-mode.nvim'
-Plug 'folke/twilight.nvim'
-Plug 'shortcuts/no-neck-pain.nvim'
-Plug 'LZDQ/nvim-autocenter'
-Plug 'nvim-focus/focus.nvim'
-
-" Misc
-Plug 'vim-scripts/restore_view.vim'
-Plug 'windwp/nvim-autopairs'
-Plug 'tpope/vim-surround'
-Plug 'kana/vim-smartword'
-Plug '3rd/image.nvim'
-"Plug 'andymass/vim-matchup'
-Plug 'numToStr/Comment.nvim'
-Plug 'AndrewRadev/splitjoin.vim'
-Plug 'gaborvecsei/cryptoprice.nvim'
-Plug 'rmagatti/auto-session'
-Plug 'vim-scripts/ReplaceWithRegister'
-Plug 'bkad/CamelCaseMotion'
-Plug 'gaborvecsei/usage-tracker.nvim'
-Plug 'xiyaowong/link-visitor.nvim'
-Plug 'voldikss/vim-floaterm'
-Plug 'mistricky/codesnap.nvim', { 'do': 'make' }
-Plug 'ouuan/nvim-bigfile'
-Plug 'NStefan002/screenkey.nvim'
-Plug 'nvzone/showkeys'
-Plug 'nacro90/numb.nvim'
-Plug 'andweeb/presence.nvim'
-Plug 'dstein64/vim-startuptime'
-
-" Jump
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'ggandor/leap.nvim'
-Plug 'rhysd/clever-f.vim'
-Plug 'nvim-telescope/telescope.nvim'
-Plug 'ThePrimeagen/harpoon', { 'branch': 'harpoon2'}
-" Plug 'inside/vim-search-pulse'
-
-" interactive python
-Plug 'benlubas/molten-nvim', { 'do': ':UpdateRemotePlugins' }
-"Plug 'dccsillag/magma-nvim', { 'do': ':UpdateRemotePlugins' }
-
-" textobj
-Plug 'kana/vim-textobj-user'
-"Plug 'D4KU/vim-textobj-chainmember'  " m
-Plug 'pianohacker/vim-textobj-indented-paragraph'  " r, g(  and g) for jump
-Plug 'jceb/vim-textobj-uri'  " iu for URL
-Plug 'Julian/vim-textobj-variable-segment'  " v
-Plug 'kana/vim-textobj-lastpat' " search pat
-
-" Games
-Plug 'ThePrimeagen/vim-be-good'
-Plug 'alec-gibson/nvim-tetris'
-Plug 'seandewar/nvimesweeper'
-Plug 'seandewar/killersheep.nvim'
-Plug 'rktjmp/playtime.nvim'
-Plug 'Eandrju/cellular-automaton.nvim'
-Plug 'alanfortlink/blackjack.nvim'
-Plug 'jim-fx/sudoku.nvim'
-
-" CTF
-Plug 'RaafatTurki/hex.nvim'
-
-" git
-Plug 'NeogitOrg/neogit'
-Plug 'sindrets/diffview.nvim'
-Plug 'lewis6991/gitsigns.nvim'
-
-call plug#end()
 
 
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_map = '<C-P>'
-let g:ctrlp_cmd = 'CtrlPMixed'
-
-
-let g:clever_f_not_overwrites_standard_mappings = 1
-let g:clever_f_across_no_line = 1
-let g:clever_f_timeout_ms = 1500
-let g:clever_f_highlight_timeout_ms = g:clever_f_timeout_ms
-nnoremap f <Plug>(clever-f-f)
-nnoremap F <Plug>(clever-f-F)
-
-
-set cursorline
-set cursorlineopt=number
-set termguicolors
-au FileType * set formatoptions-=o
-
-nnoremap > <Plug>CamelCaseMotion_w
-nnoremap < <Plug>CamelCaseMotion_b
-
-
-" au TextChangedI * call v:lua.vim.notify("text changed I")
-" au InsertEnter * call v:lua.vim.notify("insert enter")
-" au InsertCharPre * call v:lua.vim.notify("insert char pre")
-
-
-
-" By GPT
-let $FZF_DEFAULT_OPTS = '--bind ctrl-f:preview-page-down,ctrl-b:preview-page-up,ctrl-h:backward-char,ctrl-l:forward-char'
-
-
-let g:vim_search_pulse_duration = 150
-let g:vim_search_pulse_mode = 'pattern'
-
-
-let g:winresizer_start_key = '<leader>r'
+lua require("config.lazy")
