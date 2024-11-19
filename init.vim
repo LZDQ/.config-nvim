@@ -177,8 +177,13 @@ Plug 'morhetz/gruvbox'
 Plug 'catppuccin/nvim'
 Plug 'EdenEast/nightfox.nvim'
 Plug 'rebelot/kanagawa.nvim'
-Plug 'zaldih/themery.nvim' " Skin switcher
 Plug 'nyoom-engineering/oxocarbon.nvim'
+Plug 'savq/melange-nvim'
+Plug 'marko-cerovac/material.nvim'
+Plug 'Mofiqul/dracula.nvim'
+Plug 'AlexvZyl/nordic.nvim'
+Plug 'rmehri01/onenord.nvim'
+Plug 'zaldih/themery.nvim' " Skin switcher
 
 " Buffer
 Plug 'akinsho/bufferline.nvim'
@@ -189,6 +194,7 @@ Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'stevearc/dressing.nvim'
 Plug 'X3eRo0/dired.nvim'
 Plug 'stevearc/aerial.nvim'
+Plug 'simeji/winresizer'
 
 " lsp, highlight, completion
 Plug 'neovim/nvim-lspconfig'
@@ -215,6 +221,7 @@ Plug 'cuducos/yaml.nvim'
 Plug 'mfussenegger/nvim-jdtls'
 Plug 'folke/lazydev.nvim'
 Plug 'hat0uma/csvview.nvim'
+Plug 'jeetsukumaran/vim-pythonsense'
 
 " Run, Debug
 Plug 'stevearc/overseer.nvim'
@@ -248,6 +255,7 @@ Plug 'voldikss/vim-floaterm'
 Plug 'mistricky/codesnap.nvim', { 'do': 'make' }
 Plug 'ouuan/nvim-bigfile'
 Plug 'NStefan002/screenkey.nvim'
+Plug 'nvzone/showkeys'
 Plug 'nacro90/numb.nvim'
 Plug 'andweeb/presence.nvim'
 
@@ -256,10 +264,10 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'ggandor/leap.nvim'
-" Plug 'ggandor/flit.nvim'
 Plug 'rhysd/clever-f.vim'
-Plug 'nvim-telescope/telescope.nvim', " { 'tag': '0.1.6' }
+Plug 'nvim-telescope/telescope.nvim'
 Plug 'ThePrimeagen/harpoon', { 'branch': 'harpoon2'}
+Plug 'inside/vim-search-pulse'
 
 " interactive python
 Plug 'benlubas/molten-nvim', { 'do': ':UpdateRemotePlugins' }
@@ -268,11 +276,9 @@ Plug 'benlubas/molten-nvim', { 'do': ':UpdateRemotePlugins' }
 " textobj
 Plug 'kana/vim-textobj-user'
 "Plug 'D4KU/vim-textobj-chainmember'  " m
-"Plug 'glts/vim-textobj-comment'  " c
 Plug 'pianohacker/vim-textobj-indented-paragraph'  " r, g(  and g) for jump
-Plug 'jceb/vim-textobj-uri'  " iu for URL, go to open the URL
+Plug 'jceb/vim-textobj-uri'  " iu for URL
 Plug 'Julian/vim-textobj-variable-segment'  " v
-Plug 'MisanthropicBit/vim-numbers'
 Plug 'kana/vim-textobj-lastpat' " search pat
 
 " Games
@@ -326,3 +332,10 @@ nnoremap < <Plug>CamelCaseMotion_b
 
 " By GPT
 let $FZF_DEFAULT_OPTS = '--bind ctrl-f:preview-page-down,ctrl-b:preview-page-up,ctrl-h:backward-char,ctrl-l:forward-char'
+
+
+let g:vim_search_pulse_duration = 150
+let g:vim_search_pulse_mode = 'pattern'
+
+
+let g:winresizer_start_key = '<leader>r'

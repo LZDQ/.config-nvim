@@ -39,11 +39,17 @@ require('nvim-treesitter.configs').setup {
 			keymaps = {
 				["af"] = "@function.outer",
 				["if"] = "@function.inner",
-				["ac"] = "@class.outer",
-				["ic"] = "@class.inner",
+				["aC"] = "@class.outer",
+				["iC"] = "@class.inner",
 				["i,"] = "@parameter.inner",
 				["a,"] = "@parameter.outer",
-				-- [","] = "@parameter.inner",
+				["ic"] = "@comment.inner",
+				["ac"] = "@comment.outer",
+				["il"] = "@loop.inner",
+				["al"] = "@loop.outer",
+				["in"] = "@number.inner",
+				["ia"] = "@attribute.inner",
+				["aa"] = "@attribute.outer",
 			},
 			selection_modes = {
 				['@parameter.inner'] = 'v', -- charwise
@@ -51,6 +57,8 @@ require('nvim-treesitter.configs').setup {
 				['@function.inner'] = 'V', -- linewise
 				['@class.outer'] = 'V', -- linewise
 				['@class.inner'] = 'V', -- linewise
+				['@loop.inner'] = 'V',
+				['@loop.outer'] = 'V',
 			},
 			include_surrounding_whitespace = false,
 		},
@@ -58,10 +66,10 @@ require('nvim-treesitter.configs').setup {
 		swap = {
 			enable = true,
 			swap_next = {
-				["g>"] = "@parameter.inner",
+				-- ["g>"] = "@parameter.inner",
 			},
 			swap_previous = {
-				["g<"] = "@parameter.inner",
+				-- ["g<"] = "@parameter.inner",
 			},
 		},
 
@@ -69,8 +77,11 @@ require('nvim-treesitter.configs').setup {
 			enable = true,
 			set_jumps = true, -- whether to set jumps in the jumplist
 			goto_next_start = {
-				["]F"] = "@function.outer",
-				["]C"] = "@class.outer",
+				["]f"] = "@function.outer",
+				["]c"] = "@class.outer",
+				["]i"] = "@conditional.outer",
+				-- [")"] = "@parameter.inner",
+				["]l"] = "@loop.outer",
 				--
 				-- You can use regex matching (i.e. lua pattern) and/or pass a list in a "query" key to group multiple queires.
 				--["]o"] = "@loop.*",
@@ -80,34 +91,47 @@ require('nvim-treesitter.configs').setup {
 				-- Below example nvim-treesitter's `locals.scm` and `folds.scm`. They also provide highlights.scm and indent.scm.
 				-- ["]s"] = { query = "@scope", query_group = "locals", desc = "Next scope" },
 				--["]z"] = { query = "@fold", query_group = "folds", desc = "Next fold" },
-				[")"] = "@parameter.inner",
 			},
 			goto_next_end = {
-				-- ["]F"] = "@function.outer",
-				-- ["]C"] = "@class.outer",
+				["]F"] = "@function.outer",
+				["]C"] = "@class.outer",
+				["]L"] = "@loop.outer",
 			},
 			goto_previous_start = {
-				["[F"] = "@function.outer",
-				["[C"] = "@class.outer",
-				["("] = "@parameter.inner",
+				["[f"] = "@function.outer",
+				["[c"] = "@class.outer",
+				["[i"] = "@conditional.outer",
+				-- ["("] = "@parameter.inner",
+				["[l"] = "@loop.outer",
 			},
 			goto_previous_end = {
-				-- ["[F"] = "@function.outer",
-				-- ["[C"] = "@class.outer",
+				["[F"] = "@function.outer",
+				["[C"] = "@class.outer",
+				["[L"] = "@loop.outer",
 			},
 			-- Below will go to either the start or the end, whichever is closer.
 			-- Use if you want more granular movements
 			-- Make it even more gradual by adding multiple queries and regex.
 			goto_next = {
-				["]i"] = "@conditional.outer",
-				["]f"] = "@function.outer",
-				["]c"] = "@class.outer",
 			},
 			goto_previous = {
-				["[i"] = "@conditional.outer",
-				["[f"] = "@function.outer",
-				["[c"] = "@class.outer",
 			},
 		},
 	},
 }
+vim.api.nvim_set_keymap('n', 'g<lt>', ':TSTextobjectSwapPrevious @parameter.inner<CR>', {
+	noremap = true,
+	silent = true,
+})
+vim.api.nvim_set_keymap('n', 'g>', ':TSTextobjectSwapNext @parameter.inner<CR>', {
+	noremap = true,
+	silent = true,
+})
+vim.api.nvim_set_keymap('n', '(', ':TSTextobjectGotoPreviousStart @parameter.inner<CR>', {
+	noremap = true,
+	silent = true,
+})
+vim.api.nvim_set_keymap('n', ')', ':TSTextobjectGotoNextStart @parameter.inner<CR>', {
+	noremap = true,
+	silent = true,
+})

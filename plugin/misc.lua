@@ -200,7 +200,39 @@ require('bigfile').setup {
 	-- end,
 }
 
-require('numb').setup{}
-require('presence').setup{}
+require('numb').setup {}
+require('presence').setup {}
 
+require('showkeys').setup {
+	winopts = {
+		focusable = false,
+		relative = "editor",
+		style = "minimal",
+		border = "single",
+		height = 1,
+		row = 1,
+		col = 0,
+	},
 
+	timeout = 3, -- in secs
+	maxkeys = 8,
+	show_count = true,
+	excluded_modes = {}, -- example: {"i"}
+
+	-- bottom-left, bottom-right, bottom-center, top-left, top-right, top-center
+	position = "bottom-right",
+
+	keyformat = {
+		["<BS>"] = "BS",
+		["<CR>"] = "CR",
+		["<Space>"] = "Space",
+		["<Up>"] = "Up",
+		["<Down>"] = "Down",
+		["<Left>"] = "Left",
+		["<Right>"] = "Right",
+		["<PageUp>"] = "PgUp",
+		["<PageDown>"] = "PgDn",
+		["<M>"] = "Alt",
+		["<C>"] = "Ctrl",
+	},
+}
