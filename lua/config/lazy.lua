@@ -32,12 +32,30 @@ require("lazy").setup {
 	},
 	defaults = {
 		-- lazy = true,    -- All plugins are lazy-loaded by default
-		-- event = "VeryLazy", -- Set "VeryLazy" as the default event
+		-- version = "*",
 	},
 	-- Configure any other settings here. See the documentation for more details.
 	-- colorscheme that will be used when installing plugins.
 	-- install = { colorscheme = { "habamax" } },
 	-- automatically check for plugin updates
-	-- checker = { enabled = true },
-	ui = {},
+	checker = { enabled = false },
+	ui = {
+		icons = {
+			cmd = "[cmd]",
+			config = "[config]",
+			event = "[event]",
+			favorite = "[fav]",
+			ft = "[ft]",
+			init = "[init]",
+			import = "[import]",
+			keys = "[key]",
+			plugin = "[plugin]",
+			runtime = "[runtime]",
+			require = "[require]",
+			source = "[source]",
+			start = "[start]",
+			task = "[task]",
+			lazy = "[lazy]",
+		}
+	},
 }

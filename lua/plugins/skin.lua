@@ -158,7 +158,7 @@ return { {
 		vim.g.gruvbox_contrast_light = 'soft'
 	end
 }, { "folke/tokyonight.nvim", lazy = true,
-}, { "catppuccin/nvim", lazy = true,
+}, { "catppuccin/nvim", name = "catppuccin", lazy = true,
 }, { "EdenEast/nightfox.nvim", lazy = true,
 }, { "rebelot/kanagawa.nvim", lazy = true,
 }, { "nyoom-engineering/oxocarbon.nvim", lazy = true,

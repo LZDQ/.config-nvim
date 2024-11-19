@@ -1,8 +1,12 @@
 return { {
 	"nvim-focus/focus.nvim",
+	opts = {},
 	event = 'VeryLazy'
 }, {
 	"folke/zen-mode.nvim",
+	init = function ()
+		vim.keymap.set('n', '<leader><BS>', ':ZenMode<CR>', { noremap = true, silent = true })
+	end,
 	cmd = "ZenMode"
 }, {
 	"folke/twilight.nvim",
@@ -15,5 +19,6 @@ return { {
 	}
 }, {
 	"shortcuts/no-neck-pain.nvim",
-	event = 'VeryLazy'
+	enabled = false,
+	-- event = 'VeryLazy'
 } }

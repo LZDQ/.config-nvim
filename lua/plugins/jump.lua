@@ -18,7 +18,8 @@ return { {
 		vim.keymap.set('n', 'S', '<Plug>(leap)', keymap_opts)
 		vim.keymap.set('n', '<leader>S', '<Plug>(leap-from-window)', keymap_opts)
 	end,
-	keys = { "S", "<leader>S" }
+	event = 'VeryLazy',
+	-- keys = { "S", "<leader>S" }
 }, {
 	"nvim-telescope/telescope.nvim",
 	config = function()
@@ -102,5 +103,6 @@ return { {
 		vim.keymap.set('n', 'f', '<Plug>(clever-f-f)', { noremap = true })
 		vim.keymap.set('n', 'F', '<Plug>(clever-f-F)', { noremap = true })
 	end,
-	keys = { "f", "F" }
+	event = 'VeryLazy',
+	-- keys = { "f", "F" }
 } }

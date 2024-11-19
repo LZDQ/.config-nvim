@@ -89,6 +89,7 @@ return { {
 		local overseer = require("overseer")
 
 		require("auto-session").setup {
+			-- lazy_support = false,
 			pre_save_cmds = {
 				function()
 					overseer.save_task_bundle(

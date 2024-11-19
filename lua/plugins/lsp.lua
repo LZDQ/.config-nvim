@@ -1,13 +1,14 @@
 return { {
 	"neovim/nvim-lspconfig",
-	event = 'VeryLazy',
+	-- event = 'VeryLazy',
 	config = function()
 		-- Configuration at https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 		local lspconfig = require('lspconfig')
 
 		-- npm install -g pyright
 		lspconfig.pyright.setup {
-			autostart = false,
+			cmd = { "pyright-langserver", "--stdio" }, -- Use stdio communication
+			autostart = true,
 			settings = {
 				python = {
 					analysis = {
