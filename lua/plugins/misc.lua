@@ -168,11 +168,11 @@ return { {
 	"ouuan/nvim-bigfile",
 	opts = {
 		-- Default size limit in bytes
-		size_limit = 1 * 1024 * 1024, -- 1MB
+		size_limit = 1024 * 1024 * 1024,
 
 		-- Per-filetype size limits
 		ft_size_limits = {
-			-- javascript = 100 * 1024, -- 100KB for javascript files
+			javascript = 1024 * 1024, -- 100KB for javascript files
 		},
 
 		-- Show notifications when big files are detected
@@ -238,7 +238,7 @@ return { {
 	cmd = "ShowkeysToggle"
 }, {
 	"andweeb/presence.nvim",
-	enabled = false,
+	-- enabled = false,
 	event = 'VeryLazy',
 }, {
 	"bkad/CamelCaseMotion",
@@ -255,6 +255,17 @@ return { {
 	config = function()
 		vim.keymap.set('n', 'w', '<Plug>(smartword-w)', { noremap = true })
 		vim.keymap.set('n', 'b', '<Plug>(smartword-b)', { noremap = true })
+	end
+}, {
+	"LudoPinelli/comment-box.nvim",
+	--               +-----------------------------------------------+
+	--               |        :CB[lrc][lrca](box|line)[style]        |
+	--               |       Use :CBcatalog to view all styles       |
+	--               | box ASCII style is 10, line ASCII stlye is 17 |
+	--               +-----------------------------------------------+
+	event = 'VeryLazy',
+	config = function ()
+		vim.keymap.set('v', '<leader>b', ':CBcabox10', { noremap = true, silent = true })
 	end
 }, { "vim-scripts/restore_view.vim"
 }, { "tpope/vim-surround", event = 'VeryLazy'
