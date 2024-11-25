@@ -22,9 +22,13 @@ return { {
 	-- keys = { "S", "<leader>S" }
 }, {
 	"nvim-telescope/telescope.nvim",
+	dependencies = {
+		"nvim-telescope/telescope-live-grep-args.nvim",
+	},
 	config = function()
 		local actions = require('telescope.actions')
-		require('telescope').setup {
+		local telescope = require('telescope')
+		telescope.setup {
 			defaults = {
 				mappings = {
 					n = {
@@ -37,23 +41,34 @@ return { {
 						["<C-F>"] = actions.preview_scrolling_down,
 						["<C-B>"] = actions.preview_scrolling_up,
 					}
-				}
+				},
 			},
 			pickers = {
 				colorscheme = {
 					enable_preview = true
 				}
-			}
+			},
+			extensions = {
+				live_grep_args = {
+					additional_args = {
+						"--glob", "!lazy-lock.json"
+					}
+				}
+			},
 		}
+		telescope.load_extension("live_grep_args")
 	end,
 	init = function()
 		vim.keymap.set('n', ';F', ":Telescope find_files<CR>", keymap_opts)
-		vim.keymap.set('n', ';g', ":Telescope live_grep<CR>", keymap_opts)
+		vim.keymap.set('n', ';g', ":Telescope live_grep_args<CR>", keymap_opts)
 		vim.keymap.set('n', ';B', ":Telescope buffers<CR>", keymap_opts)
 		vim.keymap.set('n', ';t', ":Telescope builtin<CR>", keymap_opts)
 		vim.keymap.set('n', ';k', ":Telescope keymaps<CR>", keymap_opts)
 	end,
 	cmd = "Telescope"
+}, {
+	"nvim-telescope/telescope-live-grep-args.nvim",
+	lazy = true
 }, {
 	"junegunn/fzf",
 	lazy = true,
@@ -105,4 +120,27 @@ return { {
 	end,
 	event = 'VeryLazy',
 	-- keys = { "f", "F" }
+}, {
+	"MattesGroeger/vim-bookmarks",
+	init = function()
+		-- vim.g.bookmark_sign = '>'
+		vim.g.bookmark_no_default_key_mappings = 1
+		vim.g.bookmark_show_toggle_warning = 0
+		vim.g.bookmark_center = 1
+		vim.g.bookmark_auto_save = 1
+		vim.g.bookmark_disable_ctrlp = 1
+		vim.g.bookmark_auto_close = 1
+		vim.g.bookmark_display_annotation = 1
+	end,
+	config = function()
+		-- Note: share the prefix 'm' with molten
+		vim.keymap.set('n', 'mt', '<Plug>BookmarkToggle', { noremap = true })
+		vim.keymap.set('n', 'ma', '<Plug>BookmarkAnnotate', { noremap = true })
+		vim.keymap.set('n', 'm[', '<Plug>BookmarkPrev', { noremap = true })
+		vim.keymap.set('n', 'm]', '<Plug>BookmarkNext', { noremap = true })
+		vim.keymap.set('n', 'mc', '<Plug>BookmarkClear', { noremap = true })
+		vim.keymap.set('n', 'mx', '<Plug>BookmarkClearAll', { noremap = true })
+		vim.keymap.set('n', 'ms', '<Plug>BookmarkShowAll', { noremap = true })
+	end,
+	priority = 200
 } }

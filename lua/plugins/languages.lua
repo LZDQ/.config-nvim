@@ -23,7 +23,7 @@ return {
 	},
 	{
 		"benlubas/molten-nvim",
-		enabled = false,
+		enabled = true,
 		-- ft = "python",
 		build = ':UpdateRemotePlugins',
 		cmd = "MoltenInit",
@@ -37,6 +37,7 @@ return {
 		end,
 		config = function()
 			-- Interactive python
+			-- Note: share the prefix 'm' with vim-bookmarks
 			vim.keymap.set("n", "me", ":MoltenEvaluateOperator<CR>", keymap_opts) -- run operator selection
 			vim.keymap.set("n", "ml", ":MoltenEvaluateLine<CR>", keymap_opts) -- evaluate line
 			vim.keymap.set("n", "mr", ":MoltenReevaluateCell<CR>", keymap_opts) -- re-evaluate cell

@@ -271,4 +271,13 @@ return { {
 }, { "tpope/vim-surround", event = 'VeryLazy'
 }, { "AndrewRadev/splitjoin.vim", event = 'VeryLazy'
 }, { "vim-scripts/ReplaceWithRegister", event = 'VeryLazy'
-} }
+}, {
+	"max397574/better-escape.nvim",
+	opts = {
+		default_mappings = false,
+		mappings = {
+			i = { j = { k = "<Esc>" } }
+		}
+	},
+	event = 'VeryLazy'
+}, }

@@ -52,10 +52,11 @@ return { {
 				search_down = { kind = "search", pattern = "^/", icon = "/", lang = "regex" },
 				search_up = { kind = "search", pattern = "^%?", icon = "?", lang = "regex" },
 				filter = { pattern = "^:%s*!", icon = "$", lang = "bash", title = "Shell" },
-				lua = { pattern = { "^:%s*lua%s+", "^:%s*lua%s*=%s*", "^:%s*=%s*" }, icon = "Lua", lang = "lua" },
+				-- lua = { pattern = { "^:%s*lua%s+", "^:%s*lua%s*=%s*", "^:%s*=%s*" }, icon = "Lua", lang = "lua" },
+				lua = false,
 				--help = { pattern = "^:%s*he?l?p?%s+", icon = "Help" },
 				help = false,
-				input = {}, -- Used by input()
+				input = { icon = ":" }, -- Used by input()
 				-- lua = false, -- to disable a format, set to `false`
 			},
 		},

@@ -15,7 +15,11 @@ return { {
 			-- parser_install_dir = "/some/path/to/store/parsers",
 
 			-- A list of parser names, or "all"
-			ensure_installed = { "c", "lua", "python" },
+			ensure_installed = {
+				-- "c",
+				-- "lua",
+				-- "python",
+			},
 
 			-- Install parsers synchronously (only applied to `ensure_installed`)
 			sync_install = true,
