@@ -280,4 +280,12 @@ return { {
 		}
 	},
 	event = 'VeryLazy'
+}, {
+	"hrsh7th/nvim-pasta",
+	config = function ()
+		vim.keymap.set('n', 'p', require('pasta.mapping').p)
+		vim.keymap.set('n', 'P', require('pasta.mapping').P)
+		require('pasta').config.next_key = vim.keycode('p')
+		require('pasta').config.prev_key = vim.keycode('P')
+	end,
 }, }
