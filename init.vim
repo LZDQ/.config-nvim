@@ -45,7 +45,8 @@ nnoremap <silent> Q :q<CR>
 nnoremap <leader>q q
 nmap q <C-L>
 vnoremap q <ESC>
-inoremap <C-H> <C-W> " Ctrl-Backspace to delete a word
+" Ctrl-Backspace to delete a word
+inoremap <C-H> <C-W>
 nnoremap <silent> <C-W><C-D> :bd<CR>
 
 set tabstop=4
