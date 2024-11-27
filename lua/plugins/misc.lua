@@ -273,6 +273,7 @@ return { {
 }, { "vim-scripts/ReplaceWithRegister", event = 'VeryLazy'
 }, {
 	"max397574/better-escape.nvim",
+	enabled = false,
 	opts = {
 		default_mappings = false,
 		mappings = {
