@@ -11,6 +11,8 @@ return { {
 				show_tab_indicators = true, -- to hide tab indicators (if you want)
 				-- other options...
 				style_preset = bufferline.style_preset.no_italic,
+				left_trunc_marker = '<<',
+				right_trunc_marker = '>> ',
 			}
 		}
 	end
