@@ -272,16 +272,6 @@ return { {
 }, { "AndrewRadev/splitjoin.vim", event = 'VeryLazy'
 }, { "vim-scripts/ReplaceWithRegister", event = 'VeryLazy'
 }, {
-	"max397574/better-escape.nvim",
-	enabled = false,
-	opts = {
-		default_mappings = false,
-		mappings = {
-			i = { j = { k = "<Esc>" } }
-		}
-	},
-	event = 'VeryLazy'
-}, {
 	"hrsh7th/nvim-pasta",
 	config = function ()
 		vim.keymap.set('n', 'p', require('pasta.mapping').p)

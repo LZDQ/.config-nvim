@@ -23,11 +23,13 @@ return { {
 }, {
 	"shortcuts/no-neck-pain.nvim",
 	enabled = true,
-	cmd = "NoNeckPain",
+	-- cmd = "NoNeckPain",
 	opts = {
-		width = 96,
+		-- width = "textwidth",
+		width = 80;
 	},
 	init = function()
+		-- TODO: change focus.nvim setup to avoid conflict with NoNeckPain
 		vim.keymap.set('n', '<leader><BS>', '<Cmd>FocusToggle<CR><Cmd>NoNeckPain<CR>', { noremap = true })
 		vim.keymap.set('n', '<leader>+', '<Cmd>NoNeckPainWidthUp<CR>', { noremap = true })
 		vim.keymap.set('n', '<leader>-', '<Cmd>NoNeckPainWidthDown<CR>', { noremap = true })
