@@ -15,6 +15,7 @@ set ic
 inoremap <S-TAB> <TAB>
 
 inoremap <C-V> <ESC>"+pa
+nnoremap ;y "+y
 
 noremap <leader>z z
 noremap z %

@@ -131,7 +131,12 @@ return { {
 		lspconfig.vls.setup {}
 
 		-- dotnet tool install --global csharp-ls
-		lspconfig.csharp_ls.setup {}
+		lspconfig.csharp_ls.setup {
+			-- root_dir = lspconfig.util.root_pattern('.git', '.csproj'),
+		}
+		-- lspconfig.omnisharp.setup{
+		-- 	cmd ={ "/usr/bin/OmniSharp", "--languageserver" , "--hostPID", tostring(vim.fn.getpid()) },
+		-- }
 
 		-- go install github.com/nametake/golangci-lint-langserver@latest
 		-- go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
@@ -147,7 +152,7 @@ return { {
 
 		-- https://github.com/arduino/arduino-language-server
 		-- go install github.com/arduino/arduino-language-server@latest
-		-- Config at https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#arduino_language_server
+		-- Config at https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#arduino_language_server
 		lspconfig.arduino_language_server.setup {}
 
 		-- Use LspAttach autocommand to only map the following keys
