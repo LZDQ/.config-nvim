@@ -102,9 +102,13 @@ return { {
 		vim.keymap.set("n", ";2", function() require('harpoon'):list():select(2) end, keymap_opts)
 		vim.keymap.set("n", ";3", function() require('harpoon'):list():select(3) end, keymap_opts)
 		vim.keymap.set("n", ";4", function() require('harpoon'):list():select(4) end, keymap_opts)
+		vim.keymap.set("n", ";5", function() require('harpoon'):list():select(5) end, keymap_opts)
+		vim.keymap.set("n", ";6", function() require('harpoon'):list():select(6) end, keymap_opts)
+		vim.keymap.set("n", ";7", function() require('harpoon'):list():select(7) end, keymap_opts)
+		vim.keymap.set("n", ";8", function() require('harpoon'):list():select(8) end, keymap_opts)
 		-- Switch to previous & next buffers stored within Harpoon list
-		vim.keymap.set("n", ";p", function() require('harpoon'):list():prev() end, keymap_opts)
-		vim.keymap.set("n", ";n", function() require('harpoon'):list():next() end, keymap_opts)
+		-- vim.keymap.set("n", ";p", function() require('harpoon'):list():prev() end, keymap_opts)
+		-- vim.keymap.set("n", ";n", function() require('harpoon'):list():next() end, keymap_opts)
 	end
 }, {
 	"rhysd/clever-f.vim",
