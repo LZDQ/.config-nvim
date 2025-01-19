@@ -5,4 +5,12 @@ return {
 	{ 'jceb/vim-textobj-uri',                       event = 'VeryLazy' }, -- iu for URL
 	{ 'Julian/vim-textobj-variable-segment',        event = 'VeryLazy' }, -- v
 	{ 'kana/vim-textobj-lastpat',                   event = 'VeryLazy' }, -- search pat
+	{
+		'kana/vim-textobj-line', -- . for current line
+		event = 'VeryLazy',
+		config = function ()
+			vim.g.textobj_line_no_default_key_mappings = 1
+			vim.keymap.set({ 'v', 'o' }, '.', '<Plug>(textobj-line-a)')
+		end
+	},
 }

@@ -46,6 +46,10 @@ return {
 			vim.keymap.set("n", "mh", ":MoltenHideOutput<CR>", keymap_opts) -- hide output of current cell
 		end
 	},
+	{
+		"Vimjas/vim-python-pep8-indent",
+		ft = "python",
+	},
 	-- yaml
 	{
 		"cuducos/yaml.nvim",

@@ -122,8 +122,7 @@ return { {
 		vim.keymap.set('n', 'f', '<Plug>(clever-f-f)', { noremap = true })
 		vim.keymap.set('n', 'F', '<Plug>(clever-f-F)', { noremap = true })
 	end,
-	event = 'VeryLazy',
-	-- keys = { "f", "F" }
+	keys = { "f", "F" }
 }, {
 	"MattesGroeger/vim-bookmarks",
 	init = function()

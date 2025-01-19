@@ -261,16 +261,16 @@ return { {
 	--               +-----------------------------------------------+
 	--               |        :CB[lrc][lrca](box|line)[style]        |
 	--               |       Use :CBcatalog to view all styles       |
-	--               | box ASCII style is 10, line ASCII stlye is 17 |
+	--               | box ASCII style is 10, line ASCII style is 17 |
 	--               +-----------------------------------------------+
 	event = 'VeryLazy',
 	config = function ()
-		vim.keymap.set('v', '<leader>b', ':CBcabox10', { noremap = true, silent = true })
+		vim.keymap.set('v', '<leader>b', ':CBcabox10<CR>', { noremap = true, silent = true })
 	end
 }, { "vim-scripts/restore_view.vim"
 }, { "tpope/vim-surround", event = 'VeryLazy'
-}, { "AndrewRadev/splitjoin.vim", event = 'VeryLazy'
-}, { "vim-scripts/ReplaceWithRegister", event = 'VeryLazy'
+}, { "AndrewRadev/splitjoin.vim", lazy = false,
+}, { "vim-scripts/ReplaceWithRegister", keys = 'gr', --event = 'VeryLazy'
 }, {
 	"hrsh7th/nvim-pasta",
 	config = function ()

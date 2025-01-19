@@ -3,8 +3,7 @@ return { {
 	opts = {
 		-- split = { bufnew = false }
 	},
-	event = 'VeryLazy'
-	-- lazy = true,
+	event = 'WinNew'
 }, {
 	"folke/zen-mode.nvim",
 	init = function()
