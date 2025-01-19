@@ -30,6 +30,10 @@ return { {
 
 		lspconfig.clangd.setup {
 			autostart = true,
+			cmd = {
+				"clangd",
+				"--fallback-style=webkit"
+			}
 		}
 		-- Assembly support   https://github.com/bergercookie/asm-lsp
 		-- For RISC-V, use the following .asm-lsp.toml
