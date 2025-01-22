@@ -35,7 +35,7 @@ return { {
 	config = function(_, opts)
 		local overseer = require('overseer')
 		overseer.setup(opts)
-		vim.keymap.set('n', "'", overseer.toggle, { noremap = true })
-		vim.keymap.set('n', ";r", overseer.run_template, { noremap = true })
+		vim.keymap.set('n', "'", overseer.toggle)
+		vim.keymap.set('n', ";r", overseer.run_template)
 	end
 } }

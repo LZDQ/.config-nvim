@@ -132,22 +132,10 @@ return { {
 				},
 			},
 		}
-		vim.api.nvim_set_keymap('n', 'g<lt>', ':TSTextobjectSwapPrevious @parameter.inner<CR>', {
-			noremap = true,
-			silent = true,
-		})
-		vim.api.nvim_set_keymap('n', 'g>', ':TSTextobjectSwapNext @parameter.inner<CR>', {
-			noremap = true,
-			silent = true,
-		})
-		vim.api.nvim_set_keymap('n', '(', ':TSTextobjectGotoPreviousStart @parameter.inner<CR>', {
-			noremap = true,
-			silent = true,
-		})
-		vim.api.nvim_set_keymap('n', ')', ':TSTextobjectGotoNextStart @parameter.inner<CR>', {
-			noremap = true,
-			silent = true,
-		})
+		vim.keymap.set('n', 'g<lt>', '<CMD>TSTextobjectSwapPrevious @parameter.inner<CR>')
+		vim.keymap.set('n', 'g>', '<CMD>TSTextobjectSwapNext @parameter.inner<CR>')
+		vim.keymap.set('n', '(', '<CMD>TSTextobjectGotoPreviousStart @parameter.inner<CR>')
+		vim.keymap.set('n', ')', '<CMD>TSTextobjectGotoNextStart @parameter.inner<CR>')
 	end
 }, {
 	"nvim-treesitter/nvim-treesitter-context",

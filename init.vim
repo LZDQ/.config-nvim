@@ -40,16 +40,16 @@ nnoremap <UP> <C-Y>
 nnoremap <DOWN> <C-E>
 nnoremap <LEFT> zH
 nnoremap <RIGHT> zL
-nnoremap <silent> <TAB> :bn<CR>
-nnoremap <silent> <S-TAB> :bp<CR>
-nnoremap <silent> Q :q<CR>
+nnoremap <TAB> <CMD>bn<CR>
+nnoremap <S-TAB> <CMD>bp<CR>
+nnoremap Q <CMD>q<CR>
 nnoremap <leader>q q
-nmap <silent> q <C-L>:lua require('notify').dismiss()<CR>
+nmap q <C-L><CMD>lua require('notify').dismiss()<CR>
 vnoremap q <ESC>
 " Ctrl-Backspace to delete a word
 inoremap <C-H> <C-W>
 inoremap <C-BS> <C-W>
-nnoremap <silent> <C-W><C-D> :bd<CR>
+nnoremap <C-W><C-D> <CMD>bd<CR>
 
 set tabstop=4
 set shiftwidth=4
@@ -74,7 +74,6 @@ au FileType * set formatoptions-=o
 " Use insert mode to type them
 au TermOpen * startinsert
 au TermOpen * tnoremap <buffer> <leader><ESC> <C-\><C-N>
-" nnoremap <silent><F12> :w<CR>:term bash run.sh<CR>
 au FileType python nnoremap <buffer><F9> :w<CR>:term python %<CR>
 au FileType python nnoremap <buffer><F33> :w<CR>:term python -i %<CR>
 au FileType python nnoremap <buffer><F57> :w<CR>:term python -m pdb %<CR>
@@ -169,6 +168,7 @@ autocmd FileType cpp inoremap <C-U> <esc>:call WriteEdge("")<left><left>
 autocmd FileType cpp inoremap <C-C> <esc>:call WriteScanf("")<left><left>
 autocmd FileType cpp nnoremap <F8> :r ~/OI/tem/
 
+nnoremap <F1> <CMD>Lazy<CR>
 
 
 lua require("config.lazy")

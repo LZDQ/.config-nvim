@@ -199,7 +199,7 @@ return { {
 		livePreview = true, -- Apply theme while browsing. Default to true.
 	},
 	init = function()
-		vim.keymap.set('n', '<leader>!', ':Themery<CR>', { noremap = true, silent = true })
+		vim.keymap.set('n', '<leader>t', '<CMD>Themery<CR>')
 	end,
 	-- cmd = "Themery"
 }, {

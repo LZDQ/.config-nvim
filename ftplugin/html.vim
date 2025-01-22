@@ -1,4 +1,4 @@
-nnoremap <silent><buffer> g< :TSTextobjectSwapPrevious @attribute.outer<CR>
-nnoremap <silent><buffer> g> :TSTextobjectSwapNext @attribute.outer<CR>
-nnoremap <silent><buffer> ( :TSTextobjectGotoPreviousStart @attribute.outer<CR>
-nnoremap <silent><buffer> ) :TSTextobjectGotoNextStart @attribute.outer<CR>
+nnoremap <buffer> g< <CMD>TSTextobjectSwapPrevious @attribute.outer<CR>
+nnoremap <buffer> g> <CMD>TSTextobjectSwapNext @attribute.outer<CR>
+nnoremap <buffer> ( <CMD>TSTextobjectGotoPreviousStart @attribute.outer<CR>
+nnoremap <buffer> ) <CMD>TSTextobjectGotoNextStart @attribute.outer<CR>

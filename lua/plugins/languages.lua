@@ -1,4 +1,4 @@
-local keymap_opts = { noremap = true, silent = true, buffer = 0 }
+local keymap_opts = { noremap = true, buffer = 0 }
 return {
 	-- lua
 	{
@@ -31,19 +31,19 @@ return {
 			vim.api.nvim_create_autocmd("FileType", {
 				pattern = "python",
 				callback = function()
-					vim.keymap.set("n", "mi", ":MoltenInit<CR>", keymap_opts) -- Initialize the plugin
+					vim.keymap.set("n", "mi", "<CMD>MoltenInit<CR>", keymap_opts) -- Initialize the plugin
 				end,
 			})
 		end,
 		config = function()
 			-- Interactive python
 			-- Note: share the prefix 'm' with vim-bookmarks
-			vim.keymap.set("n", "me", ":MoltenEvaluateOperator<CR>", keymap_opts) -- run operator selection
-			vim.keymap.set("n", "ml", ":MoltenEvaluateLine<CR>", keymap_opts) -- evaluate line
-			vim.keymap.set("n", "mr", ":MoltenReevaluateCell<CR>", keymap_opts) -- re-evaluate cell
-			vim.keymap.set("v", "m", ":<C-u>MoltenEvaluateVisual<CR>", keymap_opts) -- evaluate visual selection
-			vim.keymap.set("n", "md", ":MoltenDelete<CR>", keymap_opts)    -- delete current cell
-			vim.keymap.set("n", "mh", ":MoltenHideOutput<CR>", keymap_opts) -- hide output of current cell
+			vim.keymap.set("n", "me", "<CMD>MoltenEvaluateOperator<CR>", keymap_opts) -- run operator selection
+			vim.keymap.set("n", "ml", "<CMD>MoltenEvaluateLine<CR>", keymap_opts) -- evaluate line
+			vim.keymap.set("n", "mr", "<CMD>MoltenReevaluateCell<CR>", keymap_opts) -- re-evaluate cell
+			vim.keymap.set("v", "m", "<CMD><C-u>MoltenEvaluateVisual<CR>", keymap_opts) -- evaluate visual selection
+			vim.keymap.set("n", "md", "<CMD>MoltenDelete<CR>", keymap_opts)    -- delete current cell
+			vim.keymap.set("n", "mh", "<CMD>MoltenHideOutput<CR>", keymap_opts) -- hide output of current cell
 		end
 	},
 	{

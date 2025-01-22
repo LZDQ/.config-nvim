@@ -37,7 +37,8 @@ return { {
 	cmd = "Dirbuf",
 }, {
 	"folke/noice.nvim",
-	event = 'VeryLazy',
+	event = 'CmdlineEnter',
+	-- lazy = false,
 	opts = {
 		cmdline = {
 			enabled = true, -- enables the Noice cmdline UI
@@ -260,7 +261,7 @@ return { {
 		}
 	},
 	init = function()
-		vim.keymap.set("n", ";D", ":Dired<CR>", { silent = true, noremap = true })
+		vim.keymap.set("n", ";D", "<CMD>Dired<CR>")
 	end,
 	cmd = "Dired"
 }, {
@@ -484,12 +485,12 @@ return { {
 		},
 	},
 	init = function()
-		vim.keymap.set('n', '<leader>a', ':AerialToggle<CR>', { noremap = true, silent = true })
+		vim.keymap.set('n', '<leader>a', '<CMD>AerialToggle<CR>')
 	end,
 	cmd = "AerialToggle"
 }, {
 	"simeji/winresizer",
-	event = 'VeryLazy',
+	keys = '<leader>r',
 	init = function()
 		vim.g.winresizer_start_key = '<leader>r'
 	end,
@@ -500,7 +501,7 @@ return { {
 	"jeetsukumaran/vim-buffergator",
 	init = function()
 		vim.g.buffergator_suppress_keymaps = 1
-		vim.keymap.set('n', '<leader>b', ':BuffergatorOpen<CR>', { noremap = true, silent = true })
+		vim.keymap.set('n', '<leader>b', '<CMD>BuffergatorOpen<CR>')
 	end,
 	cmd = "BuffergatorOpen"
 }, {
@@ -552,7 +553,7 @@ return { {
 		},
 	},
 	init = function()
-		vim.keymap.set('n', '<leader>B', ':ArenaToggle<CR>', { noremap = true, silent = true })
+		vim.keymap.set('n', '<leader>B', '<CMD>ArenaToggle<CR>')
 	end,
 	cmd = "ArenaToggle"
 } }

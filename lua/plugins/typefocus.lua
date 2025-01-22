@@ -3,11 +3,11 @@ return { {
 	opts = {
 		-- split = { bufnew = false }
 	},
-	event = 'WinNew'
+	event = 'WinResized'
 }, {
 	"folke/zen-mode.nvim",
 	init = function()
-		vim.keymap.set('n', '<leader><leader><BS>', ':ZenMode<CR>', { noremap = true, silent = true })
+		vim.keymap.set('n', '<leader><leader><BS>', '<CMD>ZenMode<CR>')
 	end,
 	cmd = "ZenMode"
 }, {
@@ -16,21 +16,22 @@ return { {
 }, {
 	"LZDQ/nvim-autocenter",
 	dev = false,
+	event = 'InsertEnter',
 	opts = {
 		-- when = 'always'
 	}
 }, {
 	"shortcuts/no-neck-pain.nvim",
 	enabled = true,
-	-- cmd = "NoNeckPain",
+	cmd = "NoNeckPain",
 	opts = {
 		-- width = "textwidth",
 		width = 80;
 	},
 	init = function()
 		-- TODO: change focus.nvim setup to avoid conflict with NoNeckPain
-		vim.keymap.set('n', '<leader><BS>', '<Cmd>FocusToggle<CR><Cmd>NoNeckPain<CR>', { noremap = true })
-		vim.keymap.set('n', '<leader>+', '<Cmd>NoNeckPainWidthUp<CR>', { noremap = true })
-		vim.keymap.set('n', '<leader>-', '<Cmd>NoNeckPainWidthDown<CR>', { noremap = true })
+		vim.keymap.set('n', '<leader><BS>', '<Cmd>FocusToggle<CR><Cmd>NoNeckPain<CR>')
+		vim.keymap.set('n', '<leader>+', '<Cmd>NoNeckPainWidthUp<CR>')
+		vim.keymap.set('n', '<leader>-', '<Cmd>NoNeckPainWidthDown<CR>')
 	end
 } }

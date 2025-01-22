@@ -1,6 +1,6 @@
 return { {
 	"numToStr/Comment.nvim",
-	event = 'VeryLazy',
+	keys = { ',', '<leader>,', 'c' },
 	opts = {
 		---Add a space b/w comment and the line
 		padding = true,
@@ -47,7 +47,7 @@ return { {
 	}
 }, {
 	"windwp/nvim-autopairs",
-	event = 'VeryLazy',
+	event = 'InsertEnter',
 	opts = {
 		disable_filetype = { "TelescopePrompt", "spectre_panel" },
 		disable_in_macro = true,  -- disable when recording or executing a macro
@@ -129,7 +129,7 @@ return { {
 		skip_confirmation = true, -- Skip the confirmation step, default: false
 	},
 	init = function()
-		vim.keymap.set('n', ';v', ':VisitLinkNearCursor<CR>', { noremap = true, silent = true })
+		vim.keymap.set('n', ';v', '<CMD>VisitLinkNearCursor<CR>')
 	end,
 	cmd = "VisitLinkNearCursor"
 }, {
@@ -161,7 +161,7 @@ return { {
 		-- end,
 	},
 	init = function()
-		vim.keymap.set('n', 'X', ':HexToggle<CR>', { silent = true, noremap = true })
+		vim.keymap.set('n', 'X', '<CMD>HexToggle<CR>')
 	end,
 	cmd = 'HexToggle'
 }, {
@@ -191,7 +191,6 @@ return { {
 }, {
 	"mistricky/codesnap.nvim",
 	build = "make",
-	-- event = 'VeryLazy'
 	cmd = { "CodeSnap", "CodeSnapSave", "CodeSnapASCII", "CodeSnapHighlight", "CodeSnapSaveHighlight" },
 }, {
 	"nacro90/numb.nvim",
@@ -238,23 +237,22 @@ return { {
 	cmd = "ShowkeysToggle"
 }, {
 	"andweeb/presence.nvim",
-	-- enabled = false,
 	event = 'VeryLazy',
 }, {
 	"bkad/CamelCaseMotion",
-	event = 'VeryLazy',
+	keys = { '<', '>' },
 	config = function()
 		-- nnoremap > <Plug>CamelCaseMotion_w
 		-- nnoremap < <Plug>CamelCaseMotion_b
-		vim.keymap.set('n', '>', '<Plug>CamelCaseMotion_w', { noremap = true })
-		vim.keymap.set('n', '<', '<Plug>CamelCaseMotion_b', { noremap = true })
+		vim.keymap.set('n', '>', '<Plug>CamelCaseMotion_w')
+		vim.keymap.set('n', '<', '<Plug>CamelCaseMotion_b')
 	end
 }, {
 	"kana/vim-smartword",
-	event = 'VeryLazy',
+	keys = { 'w', 'b' },
 	config = function()
-		vim.keymap.set('n', 'w', '<Plug>(smartword-w)', { noremap = true })
-		vim.keymap.set('n', 'b', '<Plug>(smartword-b)', { noremap = true })
+		vim.keymap.set('n', 'w', '<Plug>(smartword-w)')
+		vim.keymap.set('n', 'b', '<Plug>(smartword-b)')
 	end
 }, {
 	"LudoPinelli/comment-box.nvim",
@@ -263,16 +261,19 @@ return { {
 	--               |       Use :CBcatalog to view all styles       |
 	--               | box ASCII style is 10, line ASCII style is 17 |
 	--               +-----------------------------------------------+
-	event = 'VeryLazy',
-	config = function ()
-		vim.keymap.set('v', '<leader>b', ':CBcabox10<CR>', { noremap = true, silent = true })
+	event = 'CmdlineEnter',
+	init = function ()
+		vim.keymap.set('v', '<leader>b', ':CBcabox10<CR>', { silent = true })
 	end
-}, { "vim-scripts/restore_view.vim"
-}, { "tpope/vim-surround", event = 'VeryLazy'
-}, { "AndrewRadev/splitjoin.vim", lazy = false,
-}, { "vim-scripts/ReplaceWithRegister", keys = 'gr', --event = 'VeryLazy'
+}, { "vim-scripts/restore_view.vim",
+}, { "tpope/vim-surround", event = 'VeryLazy',
+}, { "AndrewRadev/splitjoin.vim", lazy = false,  -- no lazy to avoid bug
+}, { "nvim-lsp/plenary.nvim", lazy = true,
+}, { "MunifTanjim/nui.nvim", lazy = true,
+}, { "vim-scripts/ReplaceWithRegister", keys = 'gr',
 }, {
 	"hrsh7th/nvim-pasta",
+	keys = { 'p', 'P' },
 	config = function ()
 		vim.keymap.set('n', 'p', require('pasta.mapping').p)
 		vim.keymap.set('n', 'P', require('pasta.mapping').P)

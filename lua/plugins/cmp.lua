@@ -1,10 +1,10 @@
 return { {
 	"hrsh7th/nvim-cmp",
 	event = {
-		"VeryLazy",
-		-- "InsertEnter",
-		-- "CmdlineEnter",
-		-- "TermEnter",
+		-- "VeryLazy",
+		"InsertEnter",
+		"CmdlineEnter",
+		"TermEnter",
 	},
 	dependencies = {
 		'hrsh7th/cmp-nvim-lsp',
@@ -183,7 +183,7 @@ return { {
 		server_opts_overrides = {},
 	},
 	init = function()
-		vim.keymap.set('n', '<leader>p', ':Copilot panel<CR>', { noremap = true, silent = true })
+		vim.keymap.set('n', '<leader>p', '<CMD>Copilot panel<CR>')
 	end,
 	cmd = "Copilot"
 } }
