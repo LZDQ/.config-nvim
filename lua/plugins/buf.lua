@@ -255,9 +255,19 @@ return { {
 	opts = {
 		show_icons = false,
 		keybinds = {
+			-- Usage:
+			-- ;D to open
+			-- X to cut, C to copy, P in other dir to move
+			-- o to create, end with slash for dir
+			-- R to rename, D to delete
 			dired_create = "o",
-			dired_mark = ",",
-			dired_toggle_sort_order = nil,
+			dired_rename = "R",
+			dired_copy = "C",
+			dired_move = "X",
+			dired_toggle_hidden = ".",
+			dired_toggle_sort_order = ",",
+			dired_toggle_hide_details = "(",
+			dired_quit = "q",
 		}
 	},
 	init = function()

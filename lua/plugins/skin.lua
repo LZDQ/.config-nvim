@@ -167,6 +167,7 @@ return { {
 }, { "Mofiqul/dracula.nvim", lazy = true,
 }, { "AlexvZyl/nordic.nvim", lazy = true,
 }, { "rmehri01/onenord.nvim", lazy = true,
+}, { "projekt0n/github-nvim-theme", lazy = true,
 }, {
 	"zaldih/themery.nvim",
 	opts = {
@@ -179,6 +180,8 @@ return { {
 			"tokyonight-moon",
 			"tokyonight-storm",
 			"tokyonight-night",
+			"github_dark",
+			"github_dark_dimmed",
 			"material-palenight",
 			"dracula-soft",
 			"everforest",
@@ -193,6 +196,7 @@ return { {
 			"kanagawa-lotus",
 			"melange",
 			"material-lighter",
+			"github_light",
 			"gruvbox",
 		},            -- Your list of installed colorschemes
 		-- themeConfigFile = "~/.config/nvim/lua/settings/theme.lua", -- Described below
