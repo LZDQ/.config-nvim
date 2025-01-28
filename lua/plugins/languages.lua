@@ -20,8 +20,13 @@ return {
 			vim.keymap.set({ "v", "o" }, 'ad', '<Plug>(PythonsenseOuterDocStringTextObject)', keymap_opts)
 			vim.keymap.set({ "v", "o" }, 'id', '<Plug>(PythonsenseInnerDocStringTextObject)', keymap_opts)
 		end
-	},
-	{
+	}, {
+		"Vimjas/vim-python-pep8-indent",
+		ft = "python",
+	}, {
+		"vim-scripts/indentpython.vim",
+		ft = "python",
+	}, {
 		"benlubas/molten-nvim",
 		enabled = true,
 		-- ft = "python",
@@ -45,10 +50,6 @@ return {
 			vim.keymap.set("n", "md", "<CMD>MoltenDelete<CR>", keymap_opts)    -- delete current cell
 			vim.keymap.set("n", "mh", "<CMD>MoltenHideOutput<CR>", keymap_opts) -- hide output of current cell
 		end
-	},
-	{
-		"Vimjas/vim-python-pep8-indent",
-		ft = "python",
 	},
 	-- yaml
 	{

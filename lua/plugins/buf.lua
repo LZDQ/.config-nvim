@@ -563,7 +563,7 @@ return { {
 		},
 	},
 	init = function()
-		vim.keymap.set('n', '<leader>B', '<CMD>ArenaToggle<CR>')
+		vim.keymap.set('n', 'gb', '<CMD>ArenaToggle<CR>')
 	end,
 	cmd = "ArenaToggle"
 } }
