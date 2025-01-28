@@ -268,7 +268,7 @@ return { {
 }, { "vim-scripts/restore_view.vim",
 }, { "tpope/vim-surround", event = 'VeryLazy',
 }, { "AndrewRadev/splitjoin.vim", lazy = false,  -- no lazy to avoid bug
-}, { "nvim-lsp/plenary.nvim", lazy = true,
+}, { "nvim-lua/plenary.nvim", lazy = true,
 }, { "MunifTanjim/nui.nvim", lazy = true,
 }, { "vim-scripts/ReplaceWithRegister", keys = 'gr',
 }, {
