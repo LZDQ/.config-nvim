@@ -24,9 +24,6 @@ return {
 		"Vimjas/vim-python-pep8-indent",
 		ft = "python",
 	}, {
-		"vim-scripts/indentpython.vim",
-		ft = "python",
-	}, {
 		"benlubas/molten-nvim",
 		enabled = true,
 		-- ft = "python",

@@ -186,4 +186,10 @@ return { {
 		vim.keymap.set('n', '<leader>p', '<CMD>Copilot panel<CR>')
 	end,
 	cmd = "Copilot"
+}, {
+	"alvan/vim-closetag",
+	init = function ()
+		vim.g.closetag_filetypes = 'html,xml,xhtml,phtml'
+	end,
+	ft = { "html", "xml" },
 } }

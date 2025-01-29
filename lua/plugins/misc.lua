@@ -13,8 +13,7 @@ return { {
 			---Line-comment toggle keymap
 			line = ',',
 			---Block-comment toggle keymap
-			-- block = 'gcb',
-			block = nil,
+			block = 'gcb',
 		},
 		---LHS of operator-pending mappings in NORMAL and VISUAL mode
 		opleader = {

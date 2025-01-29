@@ -565,5 +565,7 @@ return { {
 	init = function()
 		vim.keymap.set('n', 'gb', '<CMD>ArenaToggle<CR>')
 	end,
-	cmd = "ArenaToggle"
+	-- cmd = "ArenaToggle"
+	-- event = 'VeryLazy',
+	lazy = false,
 } }
