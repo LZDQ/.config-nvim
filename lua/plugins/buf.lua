@@ -2,6 +2,16 @@ return { {
 	"akinsho/bufferline.nvim",
 	config = function()
 		local bufferline = require('bufferline')
+		local function get_battery_status()
+			local battery = require('battery')  -- Assuming 'battery' is a module you have that can fetch battery info
+			local status = battery.get_battery_status()
+			if status.ac_power == false then
+				local charge = math.floor(status.percent_charge_remaining / 10 + 0.5)
+				return '[' .. string.rep('#', charge) .. string.rep('-', 10 - charge) .. ']' -- Simple ASCII battery indicator
+			else
+				return ''  -- Returns an empty string if the battery is charging
+			end
+		end
 		bufferline.setup {
 			options = {
 				-- Disable icons
@@ -12,8 +22,14 @@ return { {
 				-- other options...
 				style_preset = bufferline.style_preset.no_italic,
 				left_trunc_marker = '<<',
-				right_trunc_marker = '>> ',
-			}
+				right_trunc_marker = '>>',
+				custom_areas = {
+					right = function()
+						local battery_info = get_battery_status() -- Your custom function to fetch battery status
+						return {{text = battery_info, guifg = '#FFFFFF'}}
+					end
+				}
+			},
 		}
 	end
 }, {
