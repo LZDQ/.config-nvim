@@ -292,4 +292,10 @@ return { {
 		vertical_icons = true,              -- When true icons are vertical, otherwise shows horizontal battery icon
 		multiple_battery_selection = 1,     -- Which battery to choose when multiple found. "max" or "maximum", "min" or "minimum" or a number to pick the nth battery found (currently linux acpi only)
 	},
+}, {
+	"luochen1990/select-and-search",
+	lazy = false,
+	config = function ()
+		 vim.g.select_and_search_active = 3 -- map * instead of n and N
+	end,
 } }

@@ -85,4 +85,10 @@ return {
 			csvview.enable()
 		end
 	},
+	-- rust
+	{
+		"rust-lang/rust.vim",
+		ft = "rust",
+		-- TODO: any setup
+	},
 }

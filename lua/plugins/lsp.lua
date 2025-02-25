@@ -134,6 +134,12 @@ return { {
 		-- npm install -g vls
 		lspconfig.vls.setup {}
 
+		-- npm i -g bash-language-server
+		lspconfig.bashls.setup {}
+
+		-- sudo pacman -S rust-analyzer
+		lspconfig.rust_analyzer.setup {}
+
 		-- dotnet tool install --global csharp-ls
 		lspconfig.csharp_ls.setup {
 			-- root_dir = lspconfig.util.root_pattern('.git', '.csproj'),
