@@ -91,4 +91,10 @@ return {
 		ft = "rust",
 		-- TODO: any setup
 	},
+	-- tex
+	{
+		"lervag/vimtex",
+		-- ft = "tex", -- The doc says it is already lazy loaded
+		lazy = false,
+	},
 }

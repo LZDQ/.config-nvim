@@ -157,6 +157,11 @@ return { {
 	init = function()
 		vim.g.gruvbox_contrast_light = 'soft'
 	end
+}, {
+	"tyrannicaltoucan/vim-deep-space", lazy = true,
+	init = function ()
+		vim.g.deepspace_italics = 0
+	end
 }, { "folke/tokyonight.nvim", lazy = true,
 }, { "catppuccin/nvim", name = "catppuccin", lazy = true,
 }, { "EdenEast/nightfox.nvim", lazy = true,
@@ -192,6 +197,7 @@ return { {
 			"duskfox",
 			"terafox",
 			"oxocarbon",
+			"deep-space",
 			"tokyonight-day",
 			"kanagawa-lotus",
 			"melange",
