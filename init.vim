@@ -18,7 +18,7 @@ inoremap <C-V> <ESC>"+pa
 nnoremap ;y "+y
 
 noremap <leader>z z
-noremap z %
+map z %
 set foldenable
 set foldmethod=manual
 onoremap v V%
