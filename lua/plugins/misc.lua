@@ -280,6 +280,7 @@ return { {
 		vim.keymap.set('n', 'P', require('pasta.mapping').P)
 		require('pasta').config.next_key = vim.keycode('p')
 		require('pasta').config.prev_key = vim.keycode('P')
+		require('pasta').config.indent_fix = false
 	end,
 }, {
 	"justinhj/battery.nvim",
