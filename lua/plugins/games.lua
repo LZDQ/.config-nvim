@@ -7,4 +7,5 @@ return {
 	{ 'Eandrju/cellular-automaton.nvim', cmd = "CellularAutomaton" },
 	{ 'alanfortlink/blackjack.nvim', cmd = 'BlackJackNewGame' },
 	{ 'jim-fx/sudoku.nvim', opts = "", cmd = "Sudoku" },
+	{ 'iagoleal/doctor.nvim', cmd = "TalkToTheDoctor" },
 }
