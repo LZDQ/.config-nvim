@@ -1,7 +1,14 @@
+vim.diagnostic.config{
+	jump = { 
+		float = true
+	},
+	update_in_insert = false,
+}
+
 vim.api.nvim_create_autocmd("User", {
 	pattern = "VeryLazy",
 	callback = function()
-		vim.diagnostic.disable()
+		vim.diagnostic.enable(false)
 		vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 			vim.lsp.diagnostic.on_publish_diagnostics, {
 				-- Disable signs
@@ -17,8 +24,8 @@ vim.api.nvim_create_autocmd("User", {
 		-- Global mappings.
 		-- See `:help vim.diagnostic.*` for documentation on any of the below functions
 		vim.keymap.set('n', '<F2>', vim.diagnostic.open_float)
-		vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
-		vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
+		vim.keymap.set('n', '[d', function () vim.diagnostic.jump{count=-1} end)
+		vim.keymap.set('n', ']d', function () vim.diagnostic.jump{count=1} end)
 	end
 })
 

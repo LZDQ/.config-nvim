@@ -88,6 +88,8 @@ au FileType cpp nnoremap <buffer><F10> :term ./%<<CR>
 au FileType c nnoremap <buffer><F9> :w<CR>:term gcc % -o %<<CR>
 au FileType c nnoremap <buffer><F10> :term ./%<<CR>
 au FileType tex nnoremap <buffer><F9> :w<CR>:term xelatex %<CR>
+silent! execute "set <M-a>=\<Esc>a"
+au FileType tex inoremap <buffer><M-a> \bigskip \textbf{Answer}:<CR>
 au FileType sh nnoremap <buffer><F9> :w<CR>:term bash %<CR>
 au FileType javascript nnoremap <buffer><F9> :w<CR>:term node %<CR>
 
