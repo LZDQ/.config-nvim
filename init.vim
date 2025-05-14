@@ -77,23 +77,36 @@ au TermOpen * tnoremap <buffer> <leader><ESC> <C-\><C-N>
 au FileType python nnoremap <buffer><F9> :w<CR>:term python %<CR>
 au FileType python nnoremap <buffer><F33> :w<CR>:term python -i %<CR>
 au FileType python nnoremap <buffer><F57> :w<CR>:term python -m pdb %<CR>
+
 au FileType cpp nnoremap <buffer><F9> :w<CR>:term g++ % -o %< -std=c++17<CR>
 " A-F9
 au FileType cpp nnoremap <buffer><F57> :w<CR>:term g++ % -o %< -std=c++17 -O2<CR>
 " C-F9
 au FileType cpp nnoremap <buffer><F33> :w<CR>:term g++ % -o %< -std=c++17 -Wall -g -fsanitize=undefined<CR>
 au FileType cpp nnoremap <buffer><F10> :term ./%<<CR>
-" au FileType cpp nnoremap <buffer><F5> :term cf test %<CR>
-" au FileType cpp nnoremap <buffer><F29> :term cf submit -f %<CR>
+
 au FileType c nnoremap <buffer><F9> :w<CR>:term gcc % -o %<<CR>
 au FileType c nnoremap <buffer><F10> :term ./%<<CR>
+
 au FileType tex nnoremap <buffer><F9> :w<CR>:term xelatex %<CR>
 silent! execute "set <M-a>=\<Esc>a"
 au FileType tex inoremap <buffer><M-a> \bigskip \textbf{Answer}:<CR>
+
 au FileType sh nnoremap <buffer><F9> :w<CR>:term bash %<CR>
+
 au FileType javascript nnoremap <buffer><F9> :w<CR>:term node %<CR>
 
+" test, and submit on success
+au FileType cpp nnoremap <buffer><F5> :term pyforces test -f % && pyforces submit<CR>
+" test
+au FileType cpp nnoremap <buffer><F6> :term pyforces test<CR>
+" submit
+au FileType cpp nnoremap <buffer><F7> :w<CR>:term pyforces submit -f %<CR>
 
+" python support, with program_type_id=70 (PyPy 3.10)
+au FileType python nnoremap <buffer><F5> :term pyforces test -f % && pyforces submit --file=% --program-type-id=70<CR>
+au FileType python nnoremap <buffer><F6> :term pyforces test -f %<CR>
+au FileType python nnoremap <buffer><F7> :w<CR>:term pyforces submit -f % --program-type-id=70<CR>
 
 function WriteFor(str)
 	let a=""
