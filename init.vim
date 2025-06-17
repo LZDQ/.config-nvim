@@ -183,6 +183,10 @@ autocmd FileType cpp inoremap <C-U> <esc>:call WriteEdge("")<left><left>
 autocmd FileType cpp inoremap <C-C> <esc>:call WriteScanf("")<left><left>
 autocmd FileType cpp nnoremap <F8> :r ~/OI/tem/
 
+" Move selection up or down, learnt from j-morano/buffer_manager.nvim config
+vnoremap <silent>J :m '>+1<CR>gv
+vnoremap <silent>K :m '<-2<CR>gv
+
 nnoremap <F1> <CMD>Lazy<CR>
 
 

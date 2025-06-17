@@ -584,4 +584,40 @@ return { {
 	-- cmd = "ArenaToggle"
 	-- event = 'VeryLazy',
 	lazy = false,
+}, {
+	"j-morano/buffer_manager.nvim",
+	dependencies = { "nvim-lua/plenary.nvim" },
+	opts = {
+		select_menu_item_commands = {
+			v = {
+				key = "<C-v>",
+				command = "vsplit"
+			},
+			h = {
+				key = "<C-h>",
+				command = "split"
+			},
+		},
+	},
+	config = function (_, opts)
+		require("buffer_manager").setup(opts)
+		local bmui = require("buffer_manager.ui")
+		vim.keymap.set('n', '<m-b>', bmui.toggle_quick_menu)
+		vim.api.nvim_create_autocmd("FileType", {
+			pattern = "buffer_manager",
+			callback = function()
+				-- Normal mode mappings
+				vim.keymap.set("n", "J", ":move .+1<CR>==", {
+					buffer = true,
+					silent = true,
+					desc = "Move current line down (swap with next line)",
+				})
+				vim.keymap.set("n", "K", ":move .-2<CR>==", {
+					buffer = true,
+					silent = true,
+					desc = "Move current line up (swap with previous line)",
+				})
+			end,
+		})
+	end
 } }

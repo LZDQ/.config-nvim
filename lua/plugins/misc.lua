@@ -262,12 +262,12 @@ return { {
 	--               | box ASCII style is 10, line ASCII style is 17 |
 	--               +-----------------------------------------------+
 	event = 'CmdlineEnter',
-	init = function ()
+	init = function()
 		vim.keymap.set('v', '<leader>b', ':CBcabox10<CR>', { silent = true })
 	end
 }, { "vim-scripts/restore_view.vim",
 }, { "tpope/vim-surround", event = 'VeryLazy',
-}, { "AndrewRadev/splitjoin.vim", lazy = false,  -- no lazy to avoid bug
+}, { "AndrewRadev/splitjoin.vim", lazy = false, -- no lazy to avoid bug
 }, { "nvim-lua/plenary.nvim", lazy = true,
 }, { "MunifTanjim/nui.nvim", lazy = true,
 }, { "vim-scripts/ReplaceWithRegister", keys = 'gr',
@@ -275,7 +275,7 @@ return { {
 	"hrsh7th/nvim-pasta",
 	-- keys = { 'p', 'P' },
 	lazy = false,
-	config = function ()
+	config = function()
 		vim.keymap.set('n', 'p', require('pasta.mapping').p)
 		vim.keymap.set('n', 'P', require('pasta.mapping').P)
 		require('pasta').config.next_key = vim.keycode('p')
@@ -285,18 +285,27 @@ return { {
 }, {
 	"justinhj/battery.nvim",
 	opts = {
-		update_rate_seconds = 30,           -- Number of seconds between checking battery status
+		update_rate_seconds = 30,     -- Number of seconds between checking battery status
 		show_status_when_no_battery = true, -- Don't show any icon or text when no battery found (desktop for example)
-		show_plugged_icon = true,           -- If true show a cable icon alongside the battery icon when plugged in
-		show_unplugged_icon = true,         -- When true show a diconnected cable icon when not plugged in
-		show_percent = true,                -- Whether or not to show the percent charge remaining in digits
-		vertical_icons = true,              -- When true icons are vertical, otherwise shows horizontal battery icon
-		multiple_battery_selection = 1,     -- Which battery to choose when multiple found. "max" or "maximum", "min" or "minimum" or a number to pick the nth battery found (currently linux acpi only)
+		show_plugged_icon = true,     -- If true show a cable icon alongside the battery icon when plugged in
+		show_unplugged_icon = true,   -- When true show a diconnected cable icon when not plugged in
+		show_percent = true,          -- Whether or not to show the percent charge remaining in digits
+		vertical_icons = true,        -- When true icons are vertical, otherwise shows horizontal battery icon
+		multiple_battery_selection = 1, -- Which battery to choose when multiple found. "max" or "maximum", "min" or "minimum" or a number to pick the nth battery found (currently linux acpi only)
 	},
 }, {
 	"luochen1990/select-and-search",
 	lazy = false,
-	config = function ()
-		 vim.g.select_and_search_active = 3 -- map * instead of n and N
+	config = function()
+		vim.g.select_and_search_active = 3 -- map * instead of n and N
 	end,
+}, {
+	"Almo7aya/openingh.nvim",
+	cmd = { "OpenInGHRepo", "OpenInGHFile", "OpenInGHFileLines", },
+}, {
+	"hakonharnes/img-clip.nvim", -- check the OS requirements
+	opts = {},
+	keys = {
+		{ "<m-p>", "<ESC><CMD>PasteImage<CR>", mode = 'i', desc = "Paste image from system clipboard" },
+	},
 } }

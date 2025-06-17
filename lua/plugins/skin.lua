@@ -201,6 +201,7 @@ return { {
 }, { "AlexvZyl/nordic.nvim", lazy = true,
 }, { "rmehri01/onenord.nvim", lazy = true,
 }, { "projekt0n/github-nvim-theme", lazy = true,
+}, { "rakr/vim-one", lazy = true,
 }, {
 	"zaldih/themery.nvim",
 	opts = {
@@ -232,6 +233,7 @@ return { {
 			"material-lighter",
 			"github_light",
 			"gruvbox",
+			"one",
 		},            -- Your list of installed colorschemes
 		-- themeConfigFile = "~/.config/nvim/lua/settings/theme.lua", -- Described below
 		livePreview = true, -- Apply theme while browsing. Default to true.
