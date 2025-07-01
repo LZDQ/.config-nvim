@@ -620,4 +620,52 @@ return { {
 			end,
 		})
 	end
+}, {
+	"ThePrimeagen/harpoon",
+	branch = "harpoon2",
+	opts = {},
+	lazy = true,
+	init = function()
+		-- local harpoon = require('harpoon')
+		-- harpoon:setup()
+		vim.keymap.set("n", ";a", function() require('harpoon'):list():add() end)
+		vim.keymap.set("n", ";h", function()
+			require('harpoon').ui:toggle_quick_menu(require('harpoon'):list())
+		end)
+		-- Switch to harpoon buffer
+		vim.keymap.set("n", ";1", function() require('harpoon'):list():select(1) end)
+		vim.keymap.set("n", ";2", function() require('harpoon'):list():select(2) end)
+		vim.keymap.set("n", ";3", function() require('harpoon'):list():select(3) end)
+		vim.keymap.set("n", ";4", function() require('harpoon'):list():select(4) end)
+		vim.keymap.set("n", ";5", function() require('harpoon'):list():select(5) end)
+		vim.keymap.set("n", ";6", function() require('harpoon'):list():select(6) end)
+		vim.keymap.set("n", ";7", function() require('harpoon'):list():select(7) end)
+		vim.keymap.set("n", ";8", function() require('harpoon'):list():select(8) end)
+		-- Switch to previous & next buffers stored within Harpoon list
+		-- vim.keymap.set("n", ";p", function() require('harpoon'):list():prev() end)
+		-- vim.keymap.set("n", ";n", function() require('harpoon'):list():next() end)
+	end
+}, {
+	"MattesGroeger/vim-bookmarks",
+	init = function()
+		-- vim.g.bookmark_sign = '>'
+		vim.g.bookmark_no_default_key_mappings = 1
+		vim.g.bookmark_show_toggle_warning = 0
+		vim.g.bookmark_center = 1
+		vim.g.bookmark_auto_save = 1
+		vim.g.bookmark_disable_ctrlp = 1
+		vim.g.bookmark_auto_close = 1
+		vim.g.bookmark_display_annotation = 1
+	end,
+	config = function()
+		-- Note: share the prefix 'm' with molten
+		vim.keymap.set('n', 'mt', '<Plug>BookmarkToggle')
+		vim.keymap.set('n', 'ma', '<Plug>BookmarkAnnotate')
+		vim.keymap.set('n', 'm[', '<Plug>BookmarkPrev')
+		vim.keymap.set('n', 'm]', '<Plug>BookmarkNext')
+		vim.keymap.set('n', 'mc', '<Plug>BookmarkClear')
+		vim.keymap.set('n', 'mx', '<Plug>BookmarkClearAll')
+		vim.keymap.set('n', 'ms', '<Plug>BookmarkShowAll')
+	end,
+	priority = 200
 } }

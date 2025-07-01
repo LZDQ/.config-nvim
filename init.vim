@@ -108,6 +108,9 @@ au FileType python nnoremap <buffer><F5> :term pyforces test -f % && pyforces su
 au FileType python nnoremap <buffer><F6> :term pyforces test -f %<CR>
 au FileType python nnoremap <buffer><F7> :w<CR>:term pyforces submit -f % --program-type-id=70<CR>
 
+
+au FileType scala nnoremap <buffer><F9> :w<CR>:term scala3 run %<CR>
+
 function WriteFor(str)
 	let a=""
 	let b=""
@@ -184,8 +187,8 @@ autocmd FileType cpp inoremap <C-C> <esc>:call WriteScanf("")<left><left>
 autocmd FileType cpp nnoremap <F8> :r ~/OI/tem/
 
 " Move selection up or down, learnt from j-morano/buffer_manager.nvim config
-vnoremap <silent>J :m '>+1<CR>gv
-vnoremap <silent>K :m '<-2<CR>gv
+vnoremap <silent><C-J> :m '>+1<CR>gv
+vnoremap <silent><C-K> :m '<-2<CR>gv
 
 nnoremap <F1> <CMD>Lazy<CR>
 
