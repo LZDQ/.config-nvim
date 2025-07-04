@@ -57,11 +57,12 @@ return {
 			local yaml = require("yaml_nvim")
 			yaml.setup {}
 
-			require('lualine').setup {
-				sections = {
-					lualine_c = { 'filename', yaml.get_yaml_key }
-				}
-			}
+			-- TODO: make it not conflict with current settings
+			-- require('lualine').setup {
+			-- 	sections = {
+			-- 		lualine_c = { 'filename', yaml.get_yaml_key }
+			-- 	}
+			-- }
 		end
 	},
 	-- java
@@ -104,8 +105,7 @@ return {
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 		},
-		opts = function() -- TODO, now only copied from example
-			local map = vim.keymap.set
+		opts = function()
 			-- local fn = vim.fn
 			local metals_config = require("metals").bare_config()
 
@@ -221,5 +221,12 @@ return {
 				group = nvim_metals_group,
 			})
 		end
+	},
+	-- typescript
+	{
+		"pmizio/typescript-tools.nvim",
+		dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+		opts = {}, -- TODO
+		ft = { "typescript", "typescriptreact" },
 	}
 }

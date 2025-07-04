@@ -93,23 +93,21 @@ return { {
 		-- npm install -g --save-dev --save-exact @biomejs/biome
 		-- lspconfig.biome.setup{}
 
-		-- npm i -g vscode-langservers-extracted
+		-- npm i vscode-langservers-extracted
 		lspconfig.html.setup {}
 		lspconfig.cssls.setup {}
 		lspconfig.jsonls.setup {}
 		lspconfig.eslint.setup {
 			root_dir = lspconfig.util.root_pattern('.git', 'package.json', '.eslintrc.json', '.eslintrc.js'),
-			on_attach = function(_, bufnr)
-				vim.api.nvim_create_autocmd("BufWritePre", {
-					buffer = bufnr,
-					command = "EslintFixAll",
-				})
-			end,
+			-- on_attach = function(_, bufnr)
+			-- 	vim.api.nvim_create_autocmd("BufWritePre", {
+			-- 		buffer = bufnr,
+			-- 		command = "EslintFixAll",
+			-- 	})
+			-- end,
 		}
-		-- lspconfig.ts_ls.setup {}
-
-		-- npm i -g @olrtg/emmet-language-server
-		lspconfig.emmet_language_server.setup {}
+		-- npm install -g typescript-language-server
+		-- lspconfig.ts_ls.setup {} -- subset of typescript-tools.nvim
 
 		-- npm install -g dockerfile-language-server-nodejs
 		lspconfig.dockerls.setup {}
