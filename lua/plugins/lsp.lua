@@ -97,15 +97,7 @@ return { {
 		lspconfig.html.setup {}
 		lspconfig.cssls.setup {}
 		lspconfig.jsonls.setup {}
-		lspconfig.eslint.setup {
-			root_dir = lspconfig.util.root_pattern('.git', 'package.json', '.eslintrc.json', '.eslintrc.js'),
-			-- on_attach = function(_, bufnr)
-			-- 	vim.api.nvim_create_autocmd("BufWritePre", {
-			-- 		buffer = bufnr,
-			-- 		command = "EslintFixAll",
-			-- 	})
-			-- end,
-		}
+		-- lspconfig.eslint.setup { root_dir = lspconfig.util.root_pattern('.git', 'package.json', '.eslintrc.json', '.eslintrc.js'), }
 		-- npm install -g typescript-language-server
 		-- lspconfig.ts_ls.setup {} -- subset of typescript-tools.nvim
 
@@ -169,7 +161,7 @@ return { {
 			group = vim.api.nvim_create_augroup('UserLspConfig', {}),
 			callback = function(ev)
 				-- Enable completion triggered by <c-x><c-o>
-				vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+				-- vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
 
 				-- Buffer local mappings.
 				-- See `:help vim.lsp.*` for documentation on any of the below functions
@@ -179,11 +171,11 @@ return { {
 				vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
 				vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
 				vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
-				vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, opts)
-				vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, opts)
-				vim.keymap.set('n', '<leader>wl', function()
-					print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-				end, opts)
+				-- vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, opts)
+				-- vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, opts)
+				-- vim.keymap.set('n', '<leader>wl', function()
+				-- 	print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+				-- end, opts)
 				--vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
 				vim.keymap.set('n', '<F18>', vim.lsp.buf.rename, opts) -- Shift + F6
 				--vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)

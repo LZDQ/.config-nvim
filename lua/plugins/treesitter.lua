@@ -1,6 +1,6 @@
 return { {
 	"nvim-treesitter/nvim-treesitter",
-	event = 'VeryLazy',
+	-- event = 'VeryLazy', -- need FileType autocmd
 	dependencies = {
 		"nvim-treesitter/nvim-treesitter-textobjects",
 		"nvim-treesitter/nvim-treesitter-context",
@@ -131,7 +131,15 @@ return { {
 					},
 				},
 			},
+			-- indent = { enable = { "typescript", "typescriptreact" } } -- use :TSBufEnable indent
 		}
+		vim.api.nvim_create_autocmd('FileType', {
+			pattern = {
+				'typescript',
+				'typescriptreact',
+			},
+			command = 'TSBufEnable indent'
+		})
 		vim.keymap.set('n', 'g<lt>', '<CMD>TSTextobjectSwapPrevious @parameter.inner<CR>')
 		vim.keymap.set('n', 'g>', '<CMD>TSTextobjectSwapNext @parameter.inner<CR>')
 		vim.keymap.set('n', '(', '<CMD>TSTextobjectGotoPreviousStart @parameter.inner<CR>')

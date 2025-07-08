@@ -121,7 +121,8 @@ return { {
 	end,
 }, {
 	"gaborvecsei/usage-tracker.nvim",
-	event = 'VeryLazy'
+	event = 'VeryLazy',
+	opts = {}
 }, {
 	"xiyaowong/link-visitor.nvim",
 	opts = {

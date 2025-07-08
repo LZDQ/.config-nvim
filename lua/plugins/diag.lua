@@ -1,5 +1,5 @@
 vim.diagnostic.config{
-	jump = { 
+	jump = {
 		float = true
 	},
 	update_in_insert = false,
@@ -24,8 +24,6 @@ vim.api.nvim_create_autocmd("User", {
 		-- Global mappings.
 		-- See `:help vim.diagnostic.*` for documentation on any of the below functions
 		vim.keymap.set('n', '<F2>', vim.diagnostic.open_float)
-		vim.keymap.set('n', '[d', function () vim.diagnostic.jump{count=-1} end)
-		vim.keymap.set('n', ']d', function () vim.diagnostic.jump{count=1} end)
 	end
 })
 

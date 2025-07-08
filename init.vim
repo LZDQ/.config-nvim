@@ -8,7 +8,6 @@ set noeb
 set nobackup
 set noswapfile
 set noundofile
-set noexpandtab
 
 set ic
 
@@ -56,6 +55,8 @@ set shiftwidth=4
 set softtabstop=4
 set mouse=a
 set mousemodel=extend
+set noexpandtab
+autocmd FileType html,typescript,typescriptreact setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 
 filetype plugin indent on
 set autoindent
