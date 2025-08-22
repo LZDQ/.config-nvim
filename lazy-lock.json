@@ -31,6 +31,7 @@
   "dressing.nvim": { "branch": "master", "commit": "fc78a3ca96f4db9f8893bb7e2fd9823e0780451b" },
   "edge": { "branch": "master", "commit": "2a9c299416c5bdf0506baefcd4635f85f5718c10" },
   "everforest": { "branch": "master", "commit": "0f6a0abebc98729ea0b45927151d47e2d4ce517c" },
+  "f-string-toggle.nvim": { "branch": "main", "commit": "74545e699ed0caca603b2612bfa706ff40736d31" },
   "focus.nvim": { "branch": "master", "commit": "d76338e58e49f844e8f6a7aff16a74a2a55a80ef" },
   "fzf": { "branch": "master", "commit": "56fef7c8df2713261fbdbd396aa81ed23d9a945a" },
   "fzf.vim": { "branch": "master", "commit": "556f45e79ae5e3970054fee4c4373472604a1b4e" },

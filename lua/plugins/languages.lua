@@ -11,6 +11,10 @@ return {
 	},
 	-- python
 	{
+		"roobert/f-string-toggle.nvim",
+		ft = "python",
+		opts = {},
+	} , {
 		"jeetsukumaran/vim-pythonsense",
 		ft = "python",
 		init = function()

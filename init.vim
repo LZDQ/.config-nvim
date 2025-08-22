@@ -100,7 +100,7 @@ au FileType javascript nnoremap <buffer><F9> :w<CR>:term node %<CR>
 " test, and submit on success
 au FileType cpp nnoremap <buffer><F5> :term pyforces test -f % && pyforces submit<CR>
 " test
-au FileType cpp nnoremap <buffer><F6> :term pyforces test<CR>
+au FileType cpp nnoremap <buffer><F6> :term pyforces test -f %<CR>
 " submit
 au FileType cpp nnoremap <buffer><F7> :w<CR>:term pyforces submit -f %<CR>
 
