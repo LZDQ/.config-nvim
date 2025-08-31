@@ -169,7 +169,7 @@ return { {
 	"ouuan/nvim-bigfile",
 	opts = {
 		-- Default size limit in bytes
-		size_limit = 1024 * 1024 * 1024,
+		size_limit = 1024 * 1024,
 
 		-- Per-filetype size limits
 		ft_size_limits = {
@@ -181,7 +181,7 @@ return { {
 
 		-- Enable basic syntax highlighting (not TreeSitter) for big files
 		-- (tips: it will be automatically disabled if too slow)
-		syntax = true,
+		syntax = false,
 
 		-- Custom additional hook function to run when big files are detected
 		hook = nil,
