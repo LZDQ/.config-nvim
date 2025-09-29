@@ -155,6 +155,10 @@ return { {
 		-- Config at https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#arduino_language_server
 		lspconfig.arduino_language_server.setup {}
 
+		-- https://github.com/regen100/cmake-language-server
+		-- AUR cmake-language-server
+		vim.lsp.enable('cmake')
+
 		-- Use LspAttach autocommand to only map the following keys
 		-- after the language server attaches to the current buffer
 		vim.api.nvim_create_autocmd('LspAttach', {

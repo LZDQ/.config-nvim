@@ -191,6 +191,10 @@ autocmd FileType cpp nnoremap <F8> :r ~/OI/tem/
 vnoremap <silent><C-J> :m '>+1<CR>gv
 vnoremap <silent><C-K> :m '<-2<CR>gv
 
+
+autocmd BufNewFile,BufRead .autoenv setlocal filetype=sh
+autocmd BufNewFile,BufRead *.j2 setlocal wrap
+
 nnoremap <F1> <CMD>Lazy<CR>
 
 

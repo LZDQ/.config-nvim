@@ -511,7 +511,7 @@ return { {
 		},
 	},
 	init = function()
-		vim.keymap.set('n', '<leader>a', '<CMD>AerialToggle<CR>')
+		vim.keymap.set('n', ';a', '<CMD>AerialToggle<CR>')
 	end,
 	cmd = "AerialToggle"
 }, {
@@ -628,7 +628,7 @@ return { {
 	init = function()
 		-- local harpoon = require('harpoon')
 		-- harpoon:setup()
-		vim.keymap.set("n", ";a", function() require('harpoon'):list():add() end)
+		vim.keymap.set("n", ";H", function() require('harpoon'):list():add() end)
 		vim.keymap.set("n", ";h", function()
 			require('harpoon').ui:toggle_quick_menu(require('harpoon'):list())
 		end)
