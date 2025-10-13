@@ -309,4 +309,7 @@ return { {
 	keys = {
 		{ "<m-p>", "<ESC><CMD>PasteImage<CR>", mode = 'i', desc = "Paste image from system clipboard" },
 	},
+}, {
+	"nmac427/guess-indent.nvim",
+	opts = {}
 } }
