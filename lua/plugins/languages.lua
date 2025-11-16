@@ -70,15 +70,40 @@ return {
 		end
 	},
 	-- java
+	-- {
+	-- 	"mfussenegger/nvim-jdtls", -- This doesn't setup references, using nvim-java instead.
+	-- 	ft = "java",
+	-- 	config = function()
+	-- 		require('jdtls').start_or_attach {
+	-- 			cmd = { 'jdtls' },
+	-- 			root_dir = vim.fs.dirname(vim.fs.find({ 'gradlew', '.git', 'mvnw' }, { upward = true })[1]),
+	-- 		}
+	-- 	end
+	-- },
 	{
-		"mfussenegger/nvim-jdtls",
+		"nvim-java/nvim-java",
 		ft = "java",
-		config = function()
-			require('jdtls').start_or_attach {
-				cmd = { 'jdtls' },
-				root_dir = vim.fs.dirname(vim.fs.find({ 'gradlew', '.git', 'mvnw' }, { upward = true })[1]),
-			}
-		end
+		-- config = function ()
+		-- 	require('java').setup({
+		-- 		java_test = { enable = false },
+		-- 		java_debug_adapter = { enable = false },
+		-- 		spring_boot_tools = { enable = false },
+		-- 		lombok = { enable = false },
+		-- 	})
+		-- 	require('lspconfig').jdtls.setup({})
+		-- end
+		opts = {
+			java_test = {
+				enable = false,
+				version = '0.43.1'  -- This is a TEMPORARY solution to install java-test
+			},
+			-- java_debug_adapter = { enable = false },
+			spring_boot_tools = { enable = false },
+			-- lombok = { enable = false },
+		},
+		dependencies = {
+			"williamboman/mason.nvim",
+		},
 	},
 	-- csv
 	{

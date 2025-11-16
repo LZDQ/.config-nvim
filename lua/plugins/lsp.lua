@@ -3,10 +3,10 @@ return { {
 	-- event = 'VeryLazy',
 	config = function()
 		-- Configuration at https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-		local lspconfig = require('lspconfig')
+		-- local lspconfig = require('lspconfig')
 
 		-- npm install -g pyright
-		lspconfig.pyright.setup {
+		vim.lsp.config("pyright", {
 			cmd = { "pyright-langserver", "--stdio" }, -- Use stdio communication
 			autostart = true,
 			settings = {
@@ -20,7 +20,7 @@ return { {
 					}
 				}
 			},
-		}
+		})
 		-- pip install python-lsp-server
 		-- lspconfig.pylsp.setup{}
 		-- pip install pylyzer
@@ -28,13 +28,13 @@ return { {
 
 
 
-		lspconfig.clangd.setup {
+		vim.lsp.config("clangd", {
 			autostart = true,
 			cmd = {
 				"clangd",
 				"--fallback-style=webkit"
 			}
-		}
+		})
 		-- Assembly support   https://github.com/bergercookie/asm-lsp
 		-- For RISC-V, use the following .asm-lsp.toml
 		--
@@ -59,14 +59,14 @@ return { {
 		-- diagnostics = true
 		-- default_diagnostics = true
 
-		lspconfig.asm_lsp.setup {}
+		-- vim.lsp.enable('asm_lsp')
 
 		-- pip install jedi-language-server
 		-- lspconfig.jedi_language_server.setup {}
 
 		-- https://luals.github.io/#neovim-install
 		-- or sudo pacman -S lua-language-server
-		lspconfig.lua_ls.setup {
+		vim.lsp.config("lua_ls", {
 			autostart = true,
 			settings = {
 				Lua = {
@@ -88,72 +88,70 @@ return { {
 					},
 				},
 			},
-		}
+		})
 
 		-- npm install -g --save-dev --save-exact @biomejs/biome
 		-- lspconfig.biome.setup{}
 
 		-- npm i vscode-langservers-extracted
-		lspconfig.html.setup {}
-		lspconfig.cssls.setup {}
-		lspconfig.jsonls.setup {}
+		vim.lsp.enable("html")
+		vim.lsp.enable("cssls")
+		vim.lsp.enable("jsonls")
 		-- lspconfig.eslint.setup { root_dir = lspconfig.util.root_pattern('.git', 'package.json', '.eslintrc.json', '.eslintrc.js'), }
 		-- npm install -g typescript-language-server
 		-- lspconfig.ts_ls.setup {} -- subset of typescript-tools.nvim
 
 		-- npm install -g dockerfile-language-server-nodejs
-		lspconfig.dockerls.setup {}
+		vim.lsp.enable("dockerls")
 
 		-- npm install -g @microsoft/compose-language-service
-		lspconfig.docker_compose_language_service.setup {}
+		vim.lsp.enable("docker_compose_language_service")
 
 		-- npm install -g --save-dev @babel/core @babel/cli @babel/preset-flow babel-plugin-syntax-hermes-parser
 		-- lspconfig.flow.setup{}
 
-		lspconfig.marksman.setup {}
+		vim.lsp.enable("marksman")
 
 		-- cargo install neocmakelsp
 		-- lspconfig.neocmake.setup{}
 
 		-- npm install -g vim-language-server
-		lspconfig.vimls.setup {}
+		vim.lsp.enable("vimls")
 
 		-- npm i -g sql-language-server
-		lspconfig.sqlls.setup {}
+		vim.lsp.enable("sqlls")
 
 		-- npm install -g vls
-		lspconfig.vls.setup {}
+		vim.lsp.enable("vls")
 
 		-- npm i -g bash-language-server
-		lspconfig.bashls.setup {}
+		vim.lsp.enable("bashls")
 
 		-- sudo pacman -S rust-analyzer
-		lspconfig.rust_analyzer.setup {}
+		vim.lsp.enable("rust_analyzer")
 
 		-- dotnet tool install --global csharp-ls
-		lspconfig.csharp_ls.setup {
-			-- root_dir = lspconfig.util.root_pattern('.git', '.csproj'),
-		}
+		vim.lsp.enable("csharp_ls")
 		-- lspconfig.omnisharp.setup{
 		-- 	cmd ={ "/usr/bin/OmniSharp", "--languageserver" , "--hostPID", tostring(vim.fn.getpid()) },
 		-- }
 
 		-- go install github.com/nametake/golangci-lint-langserver@latest
 		-- go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
-		lspconfig.golangci_lint_ls.setup {}
+		vim.lsp.enable("golangci_lint_ls")
 
 		-- go install golang.org/x/tools/gopls@latest
-		lspconfig.gopls.setup {}
+		vim.lsp.enable("gopls")
 
 		-- https://github.com/latex-lsp/texlab
 		-- brew install texlab
 		-- cargo install --git https://github.com/latex-lsp/texlab
-		lspconfig.texlab.setup {}
+		vim.lsp.enable("texlab")
 
 		-- https://github.com/arduino/arduino-language-server
 		-- go install github.com/arduino/arduino-language-server@latest
 		-- Config at https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#arduino_language_server
-		lspconfig.arduino_language_server.setup {}
+		vim.lsp.enable("arduino_language_server")
 
 		-- https://github.com/regen100/cmake-language-server
 		-- AUR cmake-language-server
