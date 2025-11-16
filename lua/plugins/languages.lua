@@ -80,31 +80,28 @@ return {
 	-- 		}
 	-- 	end
 	-- },
-	{
-		"nvim-java/nvim-java",
-		ft = "java",
-		-- config = function ()
-		-- 	require('java').setup({
-		-- 		java_test = { enable = false },
-		-- 		java_debug_adapter = { enable = false },
-		-- 		spring_boot_tools = { enable = false },
-		-- 		lombok = { enable = false },
-		-- 	})
-		-- 	require('lspconfig').jdtls.setup({})
-		-- end
-		opts = {
-			java_test = {
-				enable = false,
-				version = '0.43.1'  -- This is a TEMPORARY solution to install java-test
-			},
-			-- java_debug_adapter = { enable = false },
-			spring_boot_tools = { enable = false },
-			-- lombok = { enable = false },
-		},
-		dependencies = {
-			"williamboman/mason.nvim",
-		},
-	},
+	-- {
+	-- 	"nvim-java/nvim-java",
+	-- 	ft = "java",
+	-- 	-- version = '3.0.0',
+	-- 	config = function ()
+	-- 		-- vim.notify("fuck1")
+	-- 		require('java').setup({
+	-- 			java_test = {
+	-- 				enable = false,
+	-- 				version = '0.43.1'  -- This is a TEMPORARY solution to install java-test
+	-- 			},
+	-- 			-- java_debug_adapter = { enable = false },
+	-- 			spring_boot_tools = { enable = false },
+	-- 			-- lombok = { enable = false },
+	-- 		})
+	-- 		-- vim.notify("fuck2")
+	-- 		vim.lsp.enable('jdtls')
+	-- 	end,
+	-- 	-- dependencies = {
+	-- 	-- 	"mason-org/mason.nvim",
+	-- 	-- },
+	-- },
 	-- csv
 	{
 		"hat0uma/csvview.nvim",

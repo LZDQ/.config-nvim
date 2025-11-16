@@ -6,6 +6,7 @@ return { {
 		-- local lspconfig = require('lspconfig')
 
 		-- npm install -g pyright
+		vim.notify("fuck lsp")
 		vim.lsp.config("pyright", {
 			cmd = { "pyright-langserver", "--stdio" }, -- Use stdio communication
 			autostart = true,
@@ -156,6 +157,8 @@ return { {
 		-- https://github.com/regen100/cmake-language-server
 		-- AUR cmake-language-server
 		vim.lsp.enable('cmake')
+
+		vim.lsp.enable('jdtls')
 
 		-- Use LspAttach autocommand to only map the following keys
 		-- after the language server attaches to the current buffer
