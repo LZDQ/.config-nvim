@@ -6,7 +6,6 @@ return { {
 		-- local lspconfig = require('lspconfig')
 
 		-- npm install -g pyright
-		vim.notify("fuck lsp")
 		vim.lsp.config("pyright", {
 			cmd = { "pyright-langserver", "--stdio" }, -- Use stdio communication
 			autostart = true,
