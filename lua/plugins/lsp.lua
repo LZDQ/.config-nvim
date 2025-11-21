@@ -8,7 +8,6 @@ return { {
 		-- npm install -g pyright
 		vim.lsp.config("pyright", {
 			cmd = { "pyright-langserver", "--stdio" }, -- Use stdio communication
-			autostart = true,
 			settings = {
 				python = {
 					analysis = {
@@ -21,6 +20,7 @@ return { {
 				}
 			},
 		})
+		vim.lsp.enable("pyright")
 		-- pip install python-lsp-server
 		-- lspconfig.pylsp.setup{}
 		-- pip install pylyzer
@@ -28,13 +28,7 @@ return { {
 
 
 
-		vim.lsp.config("clangd", {
-			autostart = true,
-			cmd = {
-				"clangd",
-				"--fallback-style=webkit"
-			}
-		})
+		vim.lsp.enable("clangd")
 		-- Assembly support   https://github.com/bergercookie/asm-lsp
 		-- For RISC-V, use the following .asm-lsp.toml
 		--
@@ -67,7 +61,6 @@ return { {
 		-- https://luals.github.io/#neovim-install
 		-- or sudo pacman -S lua-language-server
 		vim.lsp.config("lua_ls", {
-			autostart = true,
 			settings = {
 				Lua = {
 					runtime = {
@@ -89,14 +82,13 @@ return { {
 				},
 			},
 		})
+		vim.lsp.enable("lua_ls")
 
 		-- npm install -g --save-dev --save-exact @biomejs/biome
 		-- lspconfig.biome.setup{}
 
 		-- npm i vscode-langservers-extracted
-		vim.lsp.enable("html")
-		vim.lsp.enable("cssls")
-		vim.lsp.enable("jsonls")
+		vim.lsp.enable({"html", "cssls", "jsonls"})
 		-- lspconfig.eslint.setup { root_dir = lspconfig.util.root_pattern('.git', 'package.json', '.eslintrc.json', '.eslintrc.js'), }
 		-- npm install -g typescript-language-server
 		-- lspconfig.ts_ls.setup {} -- subset of typescript-tools.nvim
@@ -159,6 +151,8 @@ return { {
 
 		vim.lsp.enable('jdtls')
 
+		vim.lsp.enable('slangd')
+
 		-- Use LspAttach autocommand to only map the following keys
 		-- after the language server attaches to the current buffer
 		vim.api.nvim_create_autocmd('LspAttach', {
@@ -200,6 +194,14 @@ return { {
 					vim.api.nvim_input('<ESC>')
 				end, opts)
 				vim.keymap.set('n', 'g=', vim.lsp.buf.format, opts)
+				-- Disable those signs in vim.diagnostic
+				vim.diagnostic.config({
+					jump = { float = true },
+					update_in_insert = false,
+					signs = false,
+					underline = false,
+				})
+				vim.keymap.set('n', '<F2>', vim.diagnostic.open_float)
 			end
 		})
 	end

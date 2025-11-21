@@ -24,6 +24,8 @@ return { {
 			}
 		},
 		task_list = {
+			min_height = 0.75,
+			-- direction = 'right',
 			bindings = {
 				["r"] = "<CMD>OverseerQuickAction run<CR>",
 				["D"] = "<CMD>OverseerQuickAction dispose<CR>",

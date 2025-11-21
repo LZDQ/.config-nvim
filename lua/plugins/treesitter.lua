@@ -152,11 +152,14 @@ return { {
 			},
 			filetype = "dotenv",
 		}
-		-- Associate .env files as "dotenv"
 		vim.filetype.add({
 			pattern = {
+				-- Associate .env files as "dotenv"
 				['%.env.*'] = 'dotenv',
 			},
+			extension = {
+				hlsl = 'hlsl',
+			}
 		})
 
 		vim.keymap.set('n', 'g<lt>', '<CMD>TSTextobjectSwapPrevious @parameter.inner<CR>')

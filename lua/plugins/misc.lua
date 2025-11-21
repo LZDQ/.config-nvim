@@ -271,7 +271,11 @@ return { {
 }, { "AndrewRadev/splitjoin.vim", lazy = false, -- no lazy to avoid bug
 }, { "nvim-lua/plenary.nvim", lazy = true,
 }, { "MunifTanjim/nui.nvim", lazy = true,
-}, { "vim-scripts/ReplaceWithRegister", keys = 'gr',
+}, {
+	"romgrk/replace.vim",
+	config = function ()
+		vim.keymap.set({'n', 'v'}, 'gs', '<Plug>ReplaceOperator', { silent = true })
+	end
 }, {
 	"hrsh7th/nvim-pasta",
 	-- keys = { 'p', 'P' },
