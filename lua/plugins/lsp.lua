@@ -84,14 +84,10 @@ return { {
 		})
 		vim.lsp.enable("lua_ls")
 
-		-- npm install -g --save-dev --save-exact @biomejs/biome
-		-- lspconfig.biome.setup{}
-
-		-- npm i vscode-langservers-extracted
+		-- npm i -g vscode-langservers-extracted
 		vim.lsp.enable({"html", "cssls", "jsonls"})
-		-- lspconfig.eslint.setup { root_dir = lspconfig.util.root_pattern('.git', 'package.json', '.eslintrc.json', '.eslintrc.js'), }
-		-- npm install -g typescript-language-server
-		-- lspconfig.ts_ls.setup {} -- subset of typescript-tools.nvim
+		-- npm i -g @vtsls/language-server
+		vim.lsp.enable("vtsls")
 
 		-- npm install -g dockerfile-language-server-nodejs
 		vim.lsp.enable("dockerls")
@@ -202,6 +198,7 @@ return { {
 					underline = false,
 				})
 				vim.keymap.set('n', '<F2>', vim.diagnostic.open_float)
+				vim.notify_once(ev.event)
 			end
 		})
 	end

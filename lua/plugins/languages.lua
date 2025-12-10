@@ -248,11 +248,4 @@ return {
 			})
 		end
 	},
-	-- typescript
-	{
-		"pmizio/typescript-tools.nvim",
-		dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-		opts = {}, -- TODO
-		ft = { "typescript", "typescriptreact" },
-	}
 }
