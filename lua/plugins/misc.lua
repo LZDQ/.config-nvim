@@ -115,7 +115,8 @@ return { {
 				end,
 			},
 			session_lens = {
-				load_on_setup = false
+				load_on_setup = false,
+				picker = 'telescope'
 			},
 		}
 	end,

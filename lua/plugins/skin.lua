@@ -1,8 +1,8 @@
 local function get_word_count()
 	-- return word count on text-based files
 	-- https://github.com/nvim-lualine/lualine.nvim/issues/328
-	local w = vim.fn.wordcount()
 	if vim.tbl_contains({ "txt", "markdown" }, vim.bo.filetype) then
+		local w = vim.fn.wordcount()
 		local c = w.visual_words or w.words
 		if c == 1 then
 			return tostring(c) .. " word"
@@ -17,7 +17,6 @@ local function get_word_count()
 end
 
 local function get_line_and_char_count()
-	-- return line and char count on other normal buffers
 	if vim.bo.buftype == "" then
 		-- return line and char count on other normal buffers
 		return tostring(vim.api.nvim_buf_line_count(0)) .. ' ' .. tostring(vim.fn.wordcount().chars)
@@ -44,7 +43,7 @@ return { {
 			always_divide_middle = true,
 			globalstatus = false,
 			refresh = {
-				statusline = 10,
+				statusline = 200,
 				tabline = 10,
 				winbar = 10,
 			}
