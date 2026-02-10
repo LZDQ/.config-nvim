@@ -14,6 +14,11 @@ return {
 		"roobert/f-string-toggle.nvim",
 		ft = "python",
 		opts = {},
+		init = function()
+			vim.keymap.set('i', '<C-F>', function()
+				require('f-string-toggle').toggle_fstring()
+			end)
+		end,
 	} , {
 		"jeetsukumaran/vim-pythonsense",
 		ft = "python",
