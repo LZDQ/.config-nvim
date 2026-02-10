@@ -269,7 +269,6 @@ return { {
 	end
 }, { "vim-scripts/restore_view.vim",
 }, { "tpope/vim-surround", event = 'VeryLazy',
-}, { "AndrewRadev/splitjoin.vim", lazy = false, -- no lazy to avoid bug
 }, { "nvim-lua/plenary.nvim", lazy = true,
 }, { "MunifTanjim/nui.nvim", lazy = true,
 }, {
@@ -317,4 +316,10 @@ return { {
 }, {
 	"nmac427/guess-indent.nvim",
 	opts = {}
+}, {
+	"AndrewRadev/splitjoin.vim",
+	lazy = false, -- no lazy to avoid bug
+	config = function()
+		vim.g.splitjoin_python_brackets_on_separate_lines = 1
+	end,
 } }
