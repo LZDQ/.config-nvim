@@ -48,7 +48,7 @@ return { {
 	cmd = { "Twilight", "TwilightEnable" }
 }, {
 	"LZDQ/nvim-autocenter",
-	dev = true,
+	dev = false,
 	event = 'InsertEnter',
 	opts = {
 		-- when = 'always'
