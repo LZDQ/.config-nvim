@@ -1,0 +1,14 @@
+{
+  "display math": {
+    "prefix": "$$",
+    "body": [
+      "\\[",
+      "\t$0",
+      "\\]"
+    ]
+  },
+  "delim parens": {
+    "prefix": "lr",
+    "body": "\\left($0\\right)"
+  }
+}

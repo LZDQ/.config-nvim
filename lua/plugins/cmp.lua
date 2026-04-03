@@ -12,6 +12,7 @@ return { {
 		'hrsh7th/cmp-path',
 		'hrsh7th/cmp-cmdline',
 		'hrsh7th/vim-vsnip',
+		'hrsh7th/cmp-vsnip',
 		'lukas-reineke/cmp-under-comparator',
 	},
 	config = function()
@@ -47,11 +48,12 @@ return { {
 		end
 
 
+		vim.g.vsnip_snippet_dir = vim.fn.stdpath("config") .. "/snippets"
 		cmp.setup {
 			snippet = {
 				-- REQUIRED - you must specify a snippet engine
 				expand = function(args)
-					vim.snippet.expand(args.body)
+					vim.fn["vsnip#anonymous"](args.body)
 				end,
 			},
 			window = {
@@ -87,7 +89,7 @@ return { {
 			}),
 			sources = cmp.config.sources({
 				{ name = 'nvim_lsp' },
-				-- { name = 'vsnip' }, -- For vsnip users.
+				{ name = 'vsnip' }, -- For vsnip users.
 				-- { name = 'luasnip' }, -- For luasnip users.
 				-- { name = 'ultisnips' }, -- For ultisnips users.
 				-- { name = 'snippy' }, -- For snippy users.
@@ -148,44 +150,6 @@ return { {
 			matching = { disallow_symbol_nonprefix_matching = false }
 		})
 	end
-}, {
-	"zbirenbaum/copilot.lua",
-	opts = {
-		panel = {
-			enabled = true,
-			auto_refresh = true,
-			keymap = {
-				jump_prev = "[[",
-				jump_next = "]]",
-				accept = "<CR>",
-				-- refresh = "<F5>",
-				-- open = "<leader>p",
-			},
-			layout = {
-				position = "right", -- | top | left | right
-				ratio = 0.4
-			},
-		},
-		suggestion = {
-			enabled = false,
-		},
-		filetypes = {
-			yaml = false,
-			markdown = false,
-			help = false,
-			gitcommit = false,
-			gitrebase = false,
-			hgcommit = false,
-			svn = false,
-			cvs = false,
-		},
-		copilot_node_command = 'node', -- Node.js version must be > 18.x
-		server_opts_overrides = {},
-	},
-	init = function()
-		vim.keymap.set('n', '<leader>p', '<CMD>Copilot panel<CR>')
-	end,
-	cmd = "Copilot"
 }, {
 	"alvan/vim-closetag",
 	init = function ()
