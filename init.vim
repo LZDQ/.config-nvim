@@ -14,7 +14,6 @@ set ic
 inoremap <S-TAB> <TAB>
 
 inoremap <C-V> <ESC>"+pa
-nnoremap ;y "+y
 
 noremap <leader>z z
 map z %
@@ -45,10 +44,11 @@ nnoremap Q <CMD>q<CR>
 nnoremap <leader>q q
 nmap q <C-L><CMD>lua require('notify').dismiss()<CR>
 vnoremap q <ESC>
-" Ctrl-Backspace to delete a word
-inoremap <C-H> <C-W>
-inoremap <C-BS> <C-W>
 nnoremap <C-W><C-D> <CMD>bd<CR>
+
+" Ctrl-Backspace to delete a word
+noremap! <C-H> <C-W>
+noremap! <C-BS> <C-W>
 
 set tabstop=4
 set shiftwidth=4
@@ -58,6 +58,7 @@ set mousemodel=extend
 set noexpandtab
 autocmd FileType html,typescript,typescriptreact setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 
+syntax on
 filetype plugin indent on
 set autoindent
 set smartindent
@@ -90,10 +91,8 @@ au FileType c nnoremap <buffer><F9> :w<CR>:term gcc % -o %<<CR>
 au FileType c nnoremap <buffer><F10> :term ./%<<CR>
 
 au FileType tex nnoremap <buffer><F9> :w<CR>:term xelatex %<CR>
-silent! execute "set <M-a>=\<Esc>a"
-au FileType tex inoremap <buffer><M-a> \bigskip \textbf{Answer}:<CR>
 
-au FileType sh nnoremap <buffer><F9> :w<CR>:term bash %<CR>
+au FileType sh nnoremap <buffer><F9> :w<CR>:term $SHELL %<CR>
 
 au FileType javascript nnoremap <buffer><F9> :w<CR>:term node %<CR>
 
@@ -191,11 +190,9 @@ autocmd FileType cpp nnoremap <F8> :r ~/OI/tem/
 vnoremap <silent><C-J> :m '>+1<CR>gv
 vnoremap <silent><C-K> :m '<-2<CR>gv
 
-
 autocmd BufNewFile,BufRead .autoenv setlocal filetype=sh
 autocmd BufNewFile,BufRead *.j2 setlocal wrap
 
+
 nnoremap <F1> <CMD>Lazy<CR>
-
-
 lua require("config.lazy")
