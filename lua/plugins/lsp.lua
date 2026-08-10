@@ -202,4 +202,16 @@ return { {
 			end
 		})
 	end
+}, {
+	"Myzel394/config-lsp.nvim",
+	ft = {
+		"sshconfig",
+		"sshdconfig",
+		"fstab",
+		"aliases",
+		"conf",
+	},
+	opts = {
+		inject_lsp = true,
+	}
 } }
