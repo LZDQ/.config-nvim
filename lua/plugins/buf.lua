@@ -645,27 +645,4 @@ return { {
 		-- vim.keymap.set("n", ";p", function() require('harpoon'):list():prev() end)
 		-- vim.keymap.set("n", ";n", function() require('harpoon'):list():next() end)
 	end
-}, {
-	"MattesGroeger/vim-bookmarks",
-	init = function()
-		-- vim.g.bookmark_sign = '>'
-		vim.g.bookmark_no_default_key_mappings = 1
-		vim.g.bookmark_show_toggle_warning = 0
-		vim.g.bookmark_center = 1
-		vim.g.bookmark_auto_save = 1
-		vim.g.bookmark_disable_ctrlp = 1
-		vim.g.bookmark_auto_close = 1
-		vim.g.bookmark_display_annotation = 1
-	end,
-	config = function()
-		-- Note: share the prefix 'm' with molten
-		vim.keymap.set('n', 'mt', '<Plug>BookmarkToggle')
-		vim.keymap.set('n', 'ma', '<Plug>BookmarkAnnotate')
-		vim.keymap.set('n', 'm[', '<Plug>BookmarkPrev')
-		vim.keymap.set('n', 'm]', '<Plug>BookmarkNext')
-		vim.keymap.set('n', 'mc', '<Plug>BookmarkClear')
-		vim.keymap.set('n', 'mx', '<Plug>BookmarkClearAll')
-		vim.keymap.set('n', 'ms', '<Plug>BookmarkShowAll')
-	end,
-	priority = 200
 } }
