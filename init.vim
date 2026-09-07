@@ -193,9 +193,12 @@ vnoremap <silent><C-K> :m '<-2<CR>gv
 autocmd BufNewFile,BufRead .autoenv setlocal filetype=sh
 autocmd BufNewFile,BufRead *.j2 setlocal wrap
 
-" Open buffers in relative path
-" autocmd BufReadPost * execute 'file ' . fnameescape(fnamemodify(expand('%:p'), ':.'))
-autocmd BufReadPost * silent keepalt 0split | noautocmd lcd . | quit
+" Open file buffers in relative path
+autocmd BufWinEnter * if &buftype == '' |
+			\ silent keepalt noautocmd 0split |
+			\ noautocmd lcd . |
+			\ noautocmd quit |
+			\ endif
 
 
 nnoremap <F1> <CMD>Lazy<CR>
