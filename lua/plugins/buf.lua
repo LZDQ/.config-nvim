@@ -511,7 +511,7 @@ return { {
 		},
 	},
 	init = function()
-		vim.keymap.set('n', ';a', '<CMD>AerialToggle<CR>')
+		vim.keymap.set('n', "'", '<CMD>AerialToggle<CR>')
 	end,
 	cmd = "AerialToggle"
 }, {
