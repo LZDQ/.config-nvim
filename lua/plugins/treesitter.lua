@@ -1,25 +1,45 @@
 return { {
-	"nvim-treesitter/nvim-treesitter", -- Archived, only for tsx html indentation
-	config = function ()
-		vim.api.nvim_create_autocmd('FileType', {
-			pattern = {
-				'javascript',
-				'javascriptreact',
-				'typescript',
-				'typescriptreact',
-			},
-			callback = function()
-				vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+	"nvim-treesitter/nvim-treesitter",
+	lazy = false,
+	build = ":TSUpdate",
+	config = function()
+		-- Auto install, start() and indent implemented by GPT
+		local ts = require("nvim-treesitter")
+
+		local available = {}
+		for _, lang in ipairs(ts.get_available()) do
+			available[lang] = true
+		end
+
+		local indent = {
+			javascript = true,
+			javascriptreact = true,
+			typescript = true,
+			typescriptreact = true,
+		}
+
+		vim.api.nvim_create_autocmd("FileType", {
+			callback = function(args)
+				local lang = vim.treesitter.language.get_lang(args.match)
+				if not lang or not available[lang] then
+					return
+				end
+
+				if indent[args.match] then
+					vim.bo[args.buf].indentexpr =
+						"v:lua.require'nvim-treesitter'.indentexpr()"
+				end
+
+				ts.install({ lang }):await(function(err, ok)
+					if err or not ok or not vim.api.nvim_buf_is_valid(args.buf) then
+						return
+					end
+
+					pcall(vim.treesitter.start, args.buf, lang)
+				end)
 			end,
 		})
-	end
-}, {
-	"https://github.com/romus204/tree-sitter-manager.nvim",
-	opts = {
-		auto_install = true,
-		nerdfont = false,
-		highlight = true,
-	}
+	end,
 }, {
 	"nvim-treesitter/nvim-treesitter-context",
 	event = 'VeryLazy',
