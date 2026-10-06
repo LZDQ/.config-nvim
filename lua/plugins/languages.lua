@@ -1,4 +1,12 @@
 local keymap_opts = { noremap = true, buffer = 0 }
+
+-- caddy
+vim.filetype.add({
+    filename = {
+        Caddyfile = "caddy",
+    },
+})
+
 return {
 	-- lua
 	{
