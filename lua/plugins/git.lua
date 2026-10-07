@@ -60,17 +60,17 @@ return { {
 	config = function(_, opts)
 		local gitsigns = require('gitsigns')
 		gitsigns.setup(opts)
-		-- Keys: <leader>g to show diff, [c and ]c to jump to diffs
+		-- Keys: <leader>g to show diff, [g and ]g to jump to diffs
 		vim.keymap.set('n', '<leader>g', function()
 			gitsigns.toggle_signs()
 			gitsigns.toggle_deleted()
 			-- gitsigns.toggle_linehl()
 			gitsigns.toggle_current_line_blame()
 		end, { noremap = true })
-		vim.keymap.set('n', ']m', function()
+		vim.keymap.set('n', ']g', function()
 			gitsigns.nav_hunk('next')
 		end, { noremap = true })
-		vim.keymap.set('n', '[m', function()
+		vim.keymap.set('n', '[g', function()
 			gitsigns.nav_hunk('prev')
 		end, { noremap = true })
 	end
