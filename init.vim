@@ -17,14 +17,7 @@ inoremap <C-V> <ESC>"+pa
 
 noremap <leader>z z
 map z %
-set foldenable
-set foldmethod=manual
 onoremap v V%
-nnoremap Z za
-vnoremap Z zf
-nnoremap + zR
-nnoremap - zM
-noremap <DEL> zD
 
 nnoremap <C-C> gg"+yG
 vnoremap <C-C> "+y

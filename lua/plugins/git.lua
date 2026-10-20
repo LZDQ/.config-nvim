@@ -1,9 +1,61 @@
 return { {
 	"sindrets/diffview.nvim",
-	enabled = false,
-	opts = {
-		use_icons = false,
-	}
+	init = function ()
+		local actions = require('diffview.actions')
+		local lib = require('diffview.lib')
+		-- vim.opt.fillchars:append { diff = "╱" }
+
+		vim.keymap.set("n", "<DEL>", function()
+			if lib.get_current_view() then
+				vim.cmd("DiffviewClose")
+			else
+				vim.cmd("DiffviewOpen")
+			end
+		end, { desc = "Toggle Diffview" })
+
+		require('diffview').setup {
+			use_icons = false,
+			signs = {
+				fold_closed = "> ",
+				fold_open = "| ",
+				done = "✓",
+			},
+			file_panel = {
+				listing_style = "list"
+			},
+			enhanced_diff_hl = true,
+			keymaps = {
+				disable_defaults = true,
+				file_panel = {
+					{ "n", "<Home>",     actions.scroll_view(-0.99) },
+					{ "n", "<PageUp>",   actions.scroll_view(-0.5) },
+					{ "n", "<PageDown>", actions.scroll_view(0.5) },
+					{ "n", "<End>",      actions.scroll_view(0.99) },
+					{ "n", "<up>",       actions.select_prev_entry },
+					{ "n", "<down>",     actions.select_next_entry },
+					{ "n", "<tab>",      actions.select_next_entry },
+					{ "n", "<s-tab>",    actions.select_prev_entry },
+					{ "n", "r",          actions.refresh_files },
+					{ "n", "'",          actions.toggle_files },
+					{ "n", "q",          "<CMD>DiffviewClose<CR>" },
+					{ "n", "l",          actions.select_entry },
+				},
+				view = {
+					{ "n", "<tab>",      actions.select_next_entry },
+					{ "n", "<s-tab>",    actions.select_prev_entry },
+					{ "n", "r",          actions.refresh_files },
+					{ "n", "'",          actions.toggle_files },
+					{ "n", "q",          actions.close },
+				}
+			},
+			hooks = {
+				view_opened = function() vim.g.focus_disable = true end,
+				view_enter  = function() vim.g.focus_disable = true  end,
+				view_closed = function() vim.g.focus_disable = false end,
+				view_leave  = function() vim.g.focus_disable = false end,
+			},
+		}
+	end
 }, {
 	"lewis6991/gitsigns.nvim",
 	event = 'VeryLazy',
