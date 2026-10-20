@@ -5,7 +5,7 @@ return { {
 		local lib = require('diffview.lib')
 		-- vim.opt.fillchars:append { diff = "╱" }
 
-		vim.keymap.set("n", "<DEL>", function()
+		vim.keymap.set("n", "<leader><leader>", function()
 			if lib.get_current_view() then
 				vim.cmd("DiffviewClose")
 			else
