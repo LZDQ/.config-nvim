@@ -69,7 +69,7 @@ return { {
 }, {
 	"junegunn/fzf",
 	lazy = true,
-	build = "./install --all",
+	-- build = "./install --all",
 }, {
 	"junegunn/fzf.vim",             -- Vim integration for fzf
 	dependencies = { "junegunn/fzf" }, -- Ensure fzf is loaded first

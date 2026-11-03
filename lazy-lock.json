@@ -81,7 +81,7 @@
   "ranger.nvim": { "branch": "main", "commit": "fd2cc999f3ef88f7cdcbcad5f26000c52b16c489" },
   "replace.vim": { "branch": "master", "commit": "45383affe5d03cdcdc6f2cc9840e682e2f3786a0" },
   "restore_view.vim": { "branch": "master", "commit": "8b933436e3ab8dec120841027183f0d72a4e2096" },
-  "rust.vim": { "branch": "master", "commit": "889b9a7515db477f4cb6808bef1769e53493c578" },
+  "rust.vim": { "branch": "main", "commit": "889b9a7515db477f4cb6808bef1769e53493c578" },
   "screenkey.nvim": { "branch": "main", "commit": "fea221f005662f43ebf72d9a23c3f75aa8fdf30b" },
   "select-and-search": { "branch": "master", "commit": "6d599c6d64201c0a15a57b650bfa1ec90c1e4052" },
   "showkeys": { "branch": "main", "commit": "38a5d15ef687da37ef0de3d6944b9eb6830982f3" },
