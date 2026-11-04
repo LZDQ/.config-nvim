@@ -25,7 +25,7 @@ return {
 		init = function()
 			vim.keymap.set('i', '<C-F>', function()
 				require('f-string-toggle').toggle_fstring()
-			end)
+			end, { desc = 'f-string-toggle'})
 		end,
 	} , {
 		"jeetsukumaran/vim-pythonsense",
